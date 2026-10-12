@@ -1,0 +1,41 @@
+{
+  "model": "../models/m12_motions.lyre",
+  "fps": 60,
+  "steps": 240,
+  "events": [
+    {
+      "step": 0,
+      "motion": {
+        "id": "wave",
+        "action": "play",
+        "weight": 1
+      }
+    },
+    {
+      "step": 60,
+      "motion": {
+        "id": "drift",
+        "action": "play",
+        "weight": 0.5
+      }
+    },
+    {
+      "step": 180,
+      "motion": {
+        "id": "wave",
+        "action": "weight",
+        "weight": 0.25
+      }
+    }
+  ],
+  "captures": [
+    15,
+    30,
+    59,
+    90,
+    129,
+    150,
+    200,
+    239
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "lyre": "0.1",
+  "id": "m16_atlas",
+  "canvas": {
+    "width": 96,
+    "height": 96,
+    "origin": [
+      0,
+      0
+    ]
+  },
+  "capabilities": [
+    "core"
+  ],
+  "files": {
+    "rig": "rig.json",
+    "atlas": "atlas.json"
+  },
+  "$note": "§3.2: atlas rendering must be indistinguishable from per-file rendering; 2-texel replicated gutters."
+}

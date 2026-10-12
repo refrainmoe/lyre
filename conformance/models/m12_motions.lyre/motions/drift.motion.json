@@ -1,0 +1,20 @@
+{
+  "id": "drift",
+  "duration": 4,
+  "loop": false,
+  "tracks": [
+    {
+      "param": "px",
+      "keys": [
+        {
+          "t": 0,
+          "v": 0
+        },
+        {
+          "t": 4,
+          "v": 0.6
+        }
+      ]
+    }
+  ]
+}

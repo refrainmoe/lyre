@@ -1,0 +1,77 @@
+{
+  "params": [
+    {
+      "id": "p",
+      "min": 0,
+      "max": 1,
+      "default": 0
+    }
+  ],
+  "nodes": [
+    {
+      "id": "root",
+      "type": "group",
+      "children": [
+        {
+          "id": "leaf",
+          "type": "sprite",
+          "rect": [
+            30,
+            40,
+            32,
+            48
+          ],
+          "z": 10
+        },
+        {
+          "id": "petal",
+          "type": "sprite",
+          "rect": [
+            16,
+            8,
+            40,
+            40
+          ],
+          "z": 20
+        },
+        {
+          "id": "petal2",
+          "type": "sprite",
+          "rect": [
+            44,
+            20,
+            40,
+            40
+          ],
+          "z": 30,
+          "texture": "petal"
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "target": "petal2",
+      "property": "offset",
+      "params": [
+        "p"
+      ],
+      "axes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          8,
+          12
+        ]
+      ]
+    }
+  ]
+}

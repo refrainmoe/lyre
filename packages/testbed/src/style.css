@@ -1,0 +1,185 @@
+:root {
+  color-scheme: dark;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #1a1b20;
+  color: #dcdde3;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  background: #232430;
+}
+
+header h1 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+#drop-hint {
+  color: #7a7c88;
+  font-size: 0.8rem;
+}
+
+#status {
+  overflow: hidden;
+  color: #9fa3b3;
+  font-size: 0.8rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#status.loading {
+  color: #e3c776;
+}
+
+#status.error {
+  color: #ec7272;
+}
+
+#fps {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  color: #9fa3b3;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 22rem;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.checker {
+  background: repeating-conic-gradient(#2c2d38 0% 25%, #383a48 0% 50%) 0 0 / 16px 16px;
+}
+
+#canvas-holder {
+  display: inline-block;
+  line-height: 0;
+  border: 1px solid #3a3c4a;
+}
+
+#gl {
+  image-rendering: pixelated;
+  min-width: 256px;
+  max-width: 100%;
+}
+
+#hit-readout {
+  margin-top: 0.5rem;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #9fa3b3;
+}
+
+#preview-backdrop-label {
+  display: block;
+  margin-top: 0.75rem;
+  color: #9fa3b3;
+  font-size: 0.8rem;
+}
+
+#compare-panel,
+#golden-panel {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #3a3c4a;
+}
+
+#compare-images,
+#golden-images {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+figure {
+  margin: 0;
+  line-height: 0;
+  border: 1px solid #3a3c4a;
+}
+
+figcaption {
+  line-height: 1.4;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.4rem;
+  background: #232430;
+}
+
+figure canvas {
+  image-rendering: pixelated;
+  width: 192px;
+}
+
+.pass {
+  color: #7dd97d;
+}
+
+.fail {
+  color: #ec7272;
+}
+
+#controls section {
+  margin-bottom: 1rem;
+}
+
+#controls h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9fa3b3;
+  margin: 0 0 0.4rem;
+}
+
+.param-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+}
+
+.param-row span {
+  flex: 0 0 9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.param-row input[type="range"] {
+  flex: 1;
+  min-width: 4rem;
+}
+
+.param-row code {
+  width: 3.2rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+button {
+  background: #33354a;
+  color: inherit;
+  border: 1px solid #4a4d63;
+  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3d4059;
+}
+
+button:disabled,
+input:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

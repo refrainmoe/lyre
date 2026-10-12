@@ -1,0 +1,40 @@
+{
+  "slots": [
+    {
+      "id": "outfit",
+      "default": "a",
+      "options": [
+        {
+          "id": "a",
+          "nodes": [
+            "outfit_a",
+            "collar"
+          ]
+        },
+        {
+          "id": "b",
+          "nodes": [
+            "outfit_b",
+            "collar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "badge",
+      "default": "none",
+      "options": [
+        {
+          "id": "none",
+          "nodes": []
+        },
+        {
+          "id": "star",
+          "nodes": [
+            "badge_star"
+          ]
+        }
+      ]
+    }
+  ]
+}

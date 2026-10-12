@@ -1,0 +1,53 @@
+{
+  "model": "../models/m08_zsort.lyre",
+  "fps": 60,
+  "steps": 6,
+  "events": [
+    {
+      "step": 0,
+      "set": {
+        "lift": 0,
+        "q": 0,
+        "half": 0
+      }
+    },
+    {
+      "step": 1,
+      "set": {
+        "lift": 1
+      }
+    },
+    {
+      "step": 2,
+      "set": {
+        "q": 1
+      }
+    },
+    {
+      "step": 3,
+      "set": {
+        "q": 0.5
+      }
+    },
+    {
+      "step": 4,
+      "set": {
+        "half": 1
+      }
+    },
+    {
+      "step": 5,
+      "set": {
+        "half": -1
+      }
+    }
+  ],
+  "captures": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

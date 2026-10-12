@@ -1,0 +1,18 @@
+{
+  "id": "eyes_closed",
+  "fade_in": 0.08,
+  "fade_out": 0.15,
+  "params": [
+    {
+      "id": "Lyre.EyeLOpen",
+      "value": 0,
+      "blend": "overwrite"
+    },
+    {
+      "id": "Lyre.EyeROpen",
+      "value": 0,
+      "blend": "overwrite"
+    }
+  ],
+  "$note": "Interactive expression layered over the autonomous blink tracks."
+}

@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist-types",
+    "rootDir": "src",
+    "emitDeclarationOnly": true,
+    "types": ["node"]
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "../../packages/core" },
+    { "path": "../../packages/render-soft" },
+    { "path": "../../packages/validate" }
+  ]
+}

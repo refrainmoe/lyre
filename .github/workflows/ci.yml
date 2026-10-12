@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  node:
+    name: Build, lint, unit & CPU conformance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11.15.1
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Clean package tarball smoke test
+        run: pnpm release:check
+      - run: pnpm build
+      - run: pnpm lint
+      - run: pnpm format:check
+      - run: pnpm test
+      - name: CPU conformance (goldens)
+        run: node packages/validate/dist/cli.js conformance conformance
+      - name: Validate corpus models
+        run: |
+          set -e
+          for m in conformance/models/*.lyre; do
+            node packages/validate/dist/cli.js "$m"
+          done
+      - name: Golden and stats freshness guard
+        # Regenerating the corpus and goldens must be a no-op against the
+        # committed tree — catches hand-edited goldens and generator drift.
+        run: |
+          pnpm --filter @refrain-lyre/gen gen
+          node packages/validate/dist/cli.js conformance conformance --regen
+          pnpm stats:check
+          if [ -n "$(git status --porcelain --untracked-files=all -- conformance)" ]; then
+            git status --short --untracked-files=all -- conformance
+            exit 1
+          fi
+
+  webgl:
+    name: WebGL conformance (Playwright / SwiftShader)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11.15.1
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @refrain-lyre/render-webgl exec playwright install --with-deps chromium
+      - name: WebGL conformance vs goldens
+        run: pnpm --filter @refrain-lyre/render-webgl e2e
+      - name: Testbed smoke tests
+        run: pnpm --filter @refrain-lyre/testbed e2e
+
+  python:
+    name: Independent Python physics conformance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Compare traces (±0.1°/step) and refresh RESULTS.md
+        run: |
+          python3 conformance/python/compare_traces.py --write-results
+          git diff --exit-code -- conformance/python/RESULTS.md

@@ -1,0 +1,63 @@
+{
+  "fps": 60,
+  "chains": [
+    {
+      "id": "ch_main",
+      "inputs": [
+        {
+          "param": "drive",
+          "type": "x",
+          "weight": 35
+        }
+      ],
+      "links": [
+        {
+          "length": 50,
+          "damping": 0.1,
+          "stiffness": 0.08
+        }
+      ],
+      "gravity": [
+        0,
+        900
+      ],
+      "outputs": [
+        {
+          "link": 0,
+          "param": "main_sway",
+          "multiplier": 1,
+          "blend": "overwrite"
+        }
+      ]
+    },
+    {
+      "id": "ch_cape",
+      "inputs": [
+        {
+          "param": "drive",
+          "type": "x",
+          "weight": 35
+        }
+      ],
+      "links": [
+        {
+          "length": 60,
+          "damping": 0.12,
+          "stiffness": 0.05
+        }
+      ],
+      "gravity": [
+        0,
+        900
+      ],
+      "outputs": [
+        {
+          "link": 0,
+          "param": "cape_sway",
+          "multiplier": 1,
+          "blend": "overwrite"
+        }
+      ]
+    }
+  ]
+}

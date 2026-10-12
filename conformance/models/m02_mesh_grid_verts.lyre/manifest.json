@@ -1,0 +1,19 @@
+{
+  "lyre": "0.1",
+  "id": "m02_mesh_grid_verts",
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "origin": [
+      0,
+      0
+    ]
+  },
+  "capabilities": [
+    "core"
+  ],
+  "files": {
+    "rig": "rig.json"
+  },
+  "$note": "§5.4 grid derivation (↘ diagonal made visible by a centre-point vert delta) + explicit-mesh escape hatch."
+}

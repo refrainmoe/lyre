@@ -1,0 +1,50 @@
+{
+  "name": "@refrain-lyre/schemas",
+  "version": "0.1.0",
+  "license": "Unlicense",
+  "description": "JSON Schemas for the Lyrical Refrain (Lyre) container file types",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/refrainmoe/lyre.git",
+    "directory": "packages/schemas"
+  },
+  "homepage": "https://github.com/refrainmoe/lyre/tree/master/packages/schemas#readme",
+  "bugs": {
+    "url": "https://github.com/refrainmoe/lyre/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./schemas/*.json": "./schemas/*.json"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "./schemas/*.json": "./schemas/*.json"
+    }
+  },
+  "files": [
+    "dist",
+    "schemas",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --sourcemap --clean && tsc --build --force",
+    "prepack": "pnpm build",
+    "prepublishOnly": "node ../../tools/prepublish.mjs",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "ajv": "^8.20.0",
+    "tsup": "^8.3.0",
+    "vitest": "^3.0.0"
+  }
+}

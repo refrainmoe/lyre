@@ -1,0 +1,134 @@
+{
+  "params": [
+    {
+      "id": "a",
+      "min": -1,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "b",
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "c",
+      "min": 0,
+      "max": 1,
+      "default": 1
+    }
+  ],
+  "nodes": [
+    {
+      "id": "root",
+      "type": "group",
+      "children": [
+        {
+          "id": "dot_a",
+          "type": "sprite",
+          "rect": [
+            14,
+            54,
+            20,
+            20
+          ],
+          "z": 10
+        },
+        {
+          "id": "dot_b",
+          "type": "sprite",
+          "rect": [
+            54,
+            54,
+            20,
+            20
+          ],
+          "z": 20
+        },
+        {
+          "id": "dot_c",
+          "type": "sprite",
+          "rect": [
+            94,
+            54,
+            20,
+            20
+          ],
+          "z": 30
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "target": "dot_a",
+      "property": "offset",
+      "params": [
+        "a"
+      ],
+      "axes": [
+        [
+          -1,
+          1
+        ]
+      ],
+      "values": [
+        [
+          0,
+          -30
+        ],
+        [
+          0,
+          30
+        ]
+      ]
+    },
+    {
+      "target": "dot_b",
+      "property": "offset",
+      "params": [
+        "b"
+      ],
+      "axes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          30
+        ]
+      ]
+    },
+    {
+      "target": "dot_c",
+      "property": "offset",
+      "params": [
+        "c"
+      ],
+      "axes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "values": [
+        [
+          0,
+          30
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

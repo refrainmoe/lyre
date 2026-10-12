@@ -1,0 +1,19 @@
+{
+  "lyre": "0.1",
+  "id": "m05_warp_overhang",
+  "canvas": {
+    "width": 160,
+    "height": 160,
+    "origin": [
+      0,
+      0
+    ]
+  },
+  "capabilities": [
+    "core"
+  ],
+  "files": {
+    "rig": "rig.json"
+  },
+  "$note": "§5.5 clamped-cell bilinear extrapolation for sprites overhanging the warp rect (edges and corner-diagonal)."
+}

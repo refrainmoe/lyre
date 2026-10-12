@@ -1,0 +1,167 @@
+{
+  "params": [
+    {
+      "id": "sway_in",
+      "min": -1,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "tilt_in",
+      "min": -30,
+      "max": 30,
+      "default": 0
+    },
+    {
+      "id": "asym_in",
+      "min": 0,
+      "max": 1,
+      "default": 0.3
+    },
+    {
+      "id": "sway1",
+      "min": -90,
+      "max": 90,
+      "default": 0
+    },
+    {
+      "id": "sway2",
+      "min": -90,
+      "max": 90,
+      "default": 0
+    },
+    {
+      "id": "asway",
+      "min": -90,
+      "max": 90,
+      "default": 0
+    }
+  ],
+  "nodes": [
+    {
+      "id": "root",
+      "type": "group",
+      "children": [
+        {
+          "id": "r1",
+          "type": "rotator",
+          "pivot": [
+            0,
+            0
+          ],
+          "children": [
+            {
+              "id": "strand_a",
+              "type": "sprite",
+              "rect": [
+                -6,
+                0,
+                12,
+                70
+              ],
+              "z": 10,
+              "texture": "strand"
+            },
+            {
+              "id": "r2",
+              "type": "rotator",
+              "pivot": [
+                0,
+                60
+              ],
+              "children": [
+                {
+                  "id": "strand_b",
+                  "type": "sprite",
+                  "rect": [
+                    -5,
+                    60,
+                    10,
+                    46
+                  ],
+                  "z": 20,
+                  "texture": "strand2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "r3",
+          "type": "rotator",
+          "pivot": [
+            -50,
+            0
+          ],
+          "children": [
+            {
+              "id": "strand_c",
+              "type": "sprite",
+              "rect": [
+                -56,
+                0,
+                12,
+                70
+              ],
+              "z": 30,
+              "texture": "strand"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "target": "r1",
+      "property": "angle",
+      "params": [
+        "sway1"
+      ],
+      "axes": [
+        [
+          -90,
+          90
+        ]
+      ],
+      "values": [
+        -90,
+        90
+      ]
+    },
+    {
+      "target": "r2",
+      "property": "angle",
+      "params": [
+        "sway2"
+      ],
+      "axes": [
+        [
+          -90,
+          90
+        ]
+      ],
+      "values": [
+        -90,
+        90
+      ]
+    },
+    {
+      "target": "r3",
+      "property": "angle",
+      "params": [
+        "asway"
+      ],
+      "axes": [
+        [
+          -90,
+          90
+        ]
+      ],
+      "values": [
+        -90,
+        90
+      ]
+    }
+  ]
+}

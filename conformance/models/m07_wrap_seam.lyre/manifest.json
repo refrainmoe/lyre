@@ -1,0 +1,19 @@
+{
+  "lyre": "0.1",
+  "id": "m07_wrap_seam",
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "origin": [
+      64,
+      64
+    ]
+  },
+  "capabilities": [
+    "core"
+  ],
+  "files": {
+    "rig": "rig.json"
+  },
+  "$note": "§6/§7 wrap: value wraps modulo [min,max); the axis interval past the last key interpolates across the seam."
+}

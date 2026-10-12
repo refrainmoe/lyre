@@ -1,0 +1,276 @@
+{
+  "params": [
+    {
+      "id": "lift",
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "q",
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "half",
+      "min": -1,
+      "max": 1,
+      "default": 0
+    }
+  ],
+  "nodes": [
+    {
+      "id": "root",
+      "type": "group",
+      "children": [
+        {
+          "id": "torso",
+          "type": "sprite",
+          "rect": [
+            48,
+            16,
+            32,
+            96
+          ],
+          "z": 2000
+        },
+        {
+          "id": "arm",
+          "type": "group",
+          "children": [
+            {
+              "id": "arm0",
+              "type": "sprite",
+              "rect": [
+                8,
+                48,
+                24,
+                16
+              ],
+              "z": 1000,
+              "texture": "seg"
+            },
+            {
+              "id": "arm1",
+              "type": "sprite",
+              "rect": [
+                30,
+                48,
+                24,
+                16
+              ],
+              "z": 1010,
+              "texture": "seg"
+            },
+            {
+              "id": "arm2",
+              "type": "sprite",
+              "rect": [
+                52,
+                48,
+                24,
+                16
+              ],
+              "z": 1020,
+              "texture": "seg"
+            },
+            {
+              "id": "arm3",
+              "type": "sprite",
+              "rect": [
+                74,
+                48,
+                24,
+                16
+              ],
+              "z": 1030,
+              "texture": "seg"
+            }
+          ]
+        },
+        {
+          "id": "gz1",
+          "type": "group",
+          "children": [
+            {
+              "id": "gz2",
+              "type": "group",
+              "children": [
+                {
+                  "id": "tile_a",
+                  "type": "sprite",
+                  "rect": [
+                    12,
+                    92,
+                    28,
+                    28
+                  ],
+                  "z": 3000
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tile_b",
+          "type": "sprite",
+          "rect": [
+            28,
+            100,
+            28,
+            28
+          ],
+          "z": 3001
+        },
+        {
+          "id": "pos_half",
+          "type": "group",
+          "children": [
+            {
+              "id": "pos_mover",
+              "type": "sprite",
+              "rect": [
+                88,
+                8,
+                28,
+                28
+              ],
+              "texture": "tile_a"
+            }
+          ]
+        },
+        {
+          "id": "pos_ref",
+          "type": "sprite",
+          "rect": [
+            96,
+            16,
+            28,
+            28
+          ],
+          "texture": "tile_b"
+        },
+        {
+          "id": "neg_ref",
+          "type": "sprite",
+          "rect": [
+            88,
+            80,
+            28,
+            28
+          ],
+          "texture": "tile_b"
+        },
+        {
+          "id": "neg_half",
+          "type": "group",
+          "children": [
+            {
+              "id": "neg_mover",
+              "type": "sprite",
+              "rect": [
+                96,
+                88,
+                28,
+                28
+              ],
+              "texture": "tile_a"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "target": "arm",
+      "property": "z",
+      "params": [
+        "lift"
+      ],
+      "axes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "values": [
+        0,
+        1500
+      ]
+    },
+    {
+      "target": "gz1",
+      "property": "z",
+      "params": [
+        "q"
+      ],
+      "axes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "values": [
+        0,
+        0.3
+      ]
+    },
+    {
+      "target": "gz2",
+      "property": "z",
+      "params": [
+        "q"
+      ],
+      "axes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "values": [
+        0,
+        0.3
+      ]
+    },
+    {
+      "target": "pos_half",
+      "property": "z",
+      "params": [
+        "half"
+      ],
+      "axes": [
+        [
+          -1,
+          0,
+          1
+        ]
+      ],
+      "values": [
+        -0.5,
+        0,
+        0.5
+      ]
+    },
+    {
+      "target": "neg_half",
+      "property": "z",
+      "params": [
+        "half"
+      ],
+      "axes": [
+        [
+          -1,
+          0,
+          1
+        ]
+      ],
+      "values": [
+        -0.5,
+        0,
+        0.5
+      ]
+    }
+  ]
+}

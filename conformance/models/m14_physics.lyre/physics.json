@@ -1,0 +1,93 @@
+{
+  "fps": 60,
+  "chains": [
+    {
+      "id": "ch_sway",
+      "inputs": [
+        {
+          "param": "sway_in",
+          "type": "x",
+          "weight": 40
+        },
+        {
+          "param": "tilt_in",
+          "type": "angle",
+          "weight": 0.5
+        }
+      ],
+      "links": [
+        {
+          "length": 60,
+          "damping": 0.1,
+          "stiffness": 0.06
+        },
+        {
+          "length": 46,
+          "damping": 0.12,
+          "stiffness": 0.03
+        }
+      ],
+      "gravity": [
+        0,
+        900
+      ],
+      "wind": [
+        0,
+        0
+      ],
+      "outputs": [
+        {
+          "link": 0,
+          "param": "sway1",
+          "multiplier": 1,
+          "blend": "overwrite"
+        },
+        {
+          "link": 1,
+          "param": "sway2",
+          "multiplier": 1.2,
+          "blend": "overwrite"
+        },
+        {
+          "link": 0,
+          "param": "asway",
+          "multiplier": 0.25,
+          "blend": "overwrite"
+        }
+      ]
+    },
+    {
+      "id": "ch_asym",
+      "inputs": [
+        {
+          "param": "asym_in",
+          "type": "x",
+          "weight": 30
+        }
+      ],
+      "links": [
+        {
+          "length": 70,
+          "damping": 0.15,
+          "stiffness": 0.1
+        }
+      ],
+      "gravity": [
+        0,
+        900
+      ],
+      "wind": [
+        15,
+        0
+      ],
+      "outputs": [
+        {
+          "link": 0,
+          "param": "asway",
+          "multiplier": 0.5,
+          "blend": "add"
+        }
+      ]
+    }
+  ]
+}

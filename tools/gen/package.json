@@ -1,0 +1,22 @@
+{
+  "name": "@refrain-lyre/gen",
+  "version": "0.1.0",
+  "license": "Unlicense",
+  "private": true,
+  "description": "Generator for the focused Lyre conformance corpus",
+  "type": "module",
+  "scripts": {
+    "gen": "tsx src/main.ts",
+    "preview:soraya": "tsx src/soraya-preview.ts"
+  },
+  "dependencies": {
+    "@refrain-lyre/core": "workspace:*",
+    "@refrain-lyre/render-soft": "workspace:*",
+    "@refrain-lyre/validate": "workspace:*",
+    "pngjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/pngjs": "^6.0.5",
+    "tsx": "^4.19.0"
+  }
+}

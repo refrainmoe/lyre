@@ -1,0 +1,50 @@
+{
+  "name": "@refrain-lyre/render-soft",
+  "version": "0.1.0",
+  "license": "Unlicense",
+  "description": "CPU reference rasterizer for Lyrical Refrain (Lyre) — deterministic §8.3 model surface",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/refrainmoe/lyre.git",
+    "directory": "packages/render-soft"
+  },
+  "homepage": "https://github.com/refrainmoe/lyre/tree/master/packages/render-soft#readme",
+  "bugs": {
+    "url": "https://github.com/refrainmoe/lyre/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --sourcemap --clean && tsc --build --force",
+    "prepack": "pnpm build",
+    "prepublishOnly": "node ../../tools/prepublish.mjs",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "@refrain-lyre/core": "^0.1.0"
+  },
+  "devDependencies": {
+    "@refrain-lyre/core": "workspace:*",
+    "tsup": "^8.3.0",
+    "vitest": "^3.0.0"
+  }
+}

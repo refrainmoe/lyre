@@ -1,0 +1,1038 @@
+{
+  "version": 1,
+  "name": "Soraya",
+  "canvas": {
+    "width": 2048,
+    "height": 2048
+  },
+  "atlas": {
+    "image": "atlas.png",
+    "layout": "atlas.json",
+    "premultipliedOnUpload": true
+  },
+  "fallback": "fallback.png",
+  "views": {
+    "full": {
+      "x": 300,
+      "y": 0,
+      "width": 1465,
+      "height": 2048
+    },
+    "zoom": {
+      "x": 500,
+      "y": 0,
+      "width": 1100,
+      "height": 1150
+    }
+  },
+  "parameters": {
+    "rootX": {
+      "min": -4,
+      "max": 4,
+      "default": 0
+    },
+    "rootY": {
+      "min": -9,
+      "max": 9,
+      "default": 0
+    },
+    "rootRoll": {
+      "min": -0.02,
+      "max": 0.02,
+      "default": 0
+    },
+    "breath": {
+      "min": -1,
+      "max": 1,
+      "default": 0
+    },
+    "blinkLeft": {
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    "blinkRight": {
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    "backHairSway": {
+      "min": -1.25,
+      "max": 1.25,
+      "default": 0
+    },
+    "backHairLift": {
+      "min": -1,
+      "max": 1,
+      "default": 0
+    },
+    "frontHairSway": {
+      "min": -1.25,
+      "max": 1.25,
+      "default": 0
+    },
+    "frontHairLift": {
+      "min": -1,
+      "max": 1,
+      "default": 0
+    },
+    "armSwing": {
+      "min": -1,
+      "max": 1,
+      "default": 0
+    },
+    "legSwing": {
+      "min": -1,
+      "max": 1,
+      "default": 0
+    },
+    "kneeBend": {
+      "min": -1,
+      "max": 1,
+      "default": 0
+    },
+    "skirtSway": {
+      "min": -1,
+      "max": 0,
+      "default": 0
+    },
+    "skirtFlutter": {
+      "min": -1,
+      "max": 1,
+      "default": 0
+    },
+    "bouquetSwing": {
+      "min": -1.25,
+      "max": 1.25,
+      "default": 0
+    },
+    "bouquetFlex": {
+      "min": -1.25,
+      "max": 1.25,
+      "default": 0
+    },
+    "bagLag": {
+      "min": -1.2,
+      "max": 1.2,
+      "default": 0
+    }
+  },
+  "groups": [
+    {
+      "id": "root",
+      "pivot": [1010, 980],
+      "bindings": {
+        "translateX": [
+          { "parameter": "rootX", "scale": 1 }
+        ],
+        "translateY": [
+          { "parameter": "rootY", "scale": 1 }
+        ],
+        "rotation": [
+          { "parameter": "rootRoll", "scale": 1 }
+        ]
+      }
+    },
+    {
+      "id": "legsRig",
+      "parent": "root",
+      "pivot": [972, 900],
+      "bindings": {
+        "translateX": [
+          { "parameter": "legSwing", "scale": 6.5 }
+        ],
+        "translateY": [
+          { "parameter": "legSwing", "scale": 2 }
+        ],
+        "rotation": [
+          { "parameter": "legSwing", "scale": 0.052 }
+        ]
+      }
+    },
+    {
+      "id": "skirtRig",
+      "parent": "root",
+      "pivot": [979, 778],
+      "bindings": {}
+    },
+    {
+      "id": "chest",
+      "parent": "root",
+      "pivot": [976, 758],
+      "bindings": {
+        "translateY": [
+          { "parameter": "breath", "scale": -0.8 }
+        ]
+      }
+    },
+    {
+      "id": "head",
+      "parent": "chest",
+      "pivot": [962, 366],
+      "bindings": {
+        "translateY": [
+          { "parameter": "breath", "scale": -1.1 }
+        ],
+        "rotation": [
+          { "parameter": "breath", "scale": 0.002 }
+        ]
+      }
+    },
+    {
+      "id": "leftArm",
+      "parent": "chest",
+      "pivot": [826, 462],
+      "bindings": {
+        "translateY": [
+          { "parameter": "armSwing", "scale": 1.6 }
+        ],
+        "rotation": [
+          { "parameter": "breath", "scale": -0.0015 },
+          { "parameter": "armSwing", "scale": -0.034 }
+        ]
+      }
+    },
+    {
+      "id": "bouquet",
+      "parent": "leftArm",
+      "pivot": [715, 720],
+      "bindings": {
+        "rotation": [
+          { "parameter": "bouquetSwing", "scale": 0.06 }
+        ]
+      }
+    },
+    {
+      "id": "rightArm",
+      "parent": "chest",
+      "pivot": [1054, 430],
+      "bindings": {
+        "translateY": [
+          { "parameter": "armSwing", "scale": -1.6 }
+        ],
+        "rotation": [
+          { "parameter": "breath", "scale": 0.0012 },
+          { "parameter": "armSwing", "scale": 0.038 }
+        ]
+      }
+    },
+    {
+      "id": "bags",
+      "parent": "rightArm",
+      "pivot": [1377, 866],
+      "bindings": {
+        "rotation": [
+          { "parameter": "bagLag", "scale": 0.055 }
+        ]
+      }
+    }
+  ],
+  "drawables": [
+    {
+      "id": "backHair",
+      "textureLayer": "back hair",
+      "group": "head",
+      "grid": [12, 10],
+      "deformers": [
+        {
+          "kind": "cage",
+          "parameter": "backHairSway",
+          "grid": [5, 5],
+          "keyforms": [
+            {
+              "value": -1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [-4, 0], [-6, 1], [-8, 1], [-10, 0], [-12, -1],
+                [-10, 1], [-15, 2], [-20, 2], [-26, 1], [-32, -1],
+                [-26, 2], [-38, 5], [-50, 4], [-63, 1], [-76, -3],
+                [-45, 4], [-60, 8], [-76, 5], [-92, 0], [-108, -5]
+              ]
+            },
+            { "value": 0 },
+            {
+              "value": 1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [4, 0], [6, -1], [8, -1], [11, 0], [14, 1],
+                [11, -1], [16, -3], [22, -2], [29, 0], [36, 2],
+                [28, -2], [40, -6], [53, -5], [67, 0], [82, 4],
+                [46, -4], [64, -9], [82, -6], [101, 1], [120, 6]
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "cage",
+          "parameter": "backHairLift",
+          "grid": [5, 5],
+          "keyforms": [
+            {
+              "value": -1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [-1, 2], [0, 3], [1, 4], [0, 3], [-1, 2],
+                [-3, 6], [-1, 8], [1, 10], [2, 8], [1, 6],
+                [-6, 15], [-2, 19], [1, 22], [5, 19], [4, 15],
+                [-10, 25], [-4, 30], [2, 35], [9, 30], [8, 25]
+              ]
+            },
+            { "value": 0 },
+            {
+              "value": 1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [1, -2], [0, -3], [-1, -4], [0, -3], [1, -2],
+                [3, -6], [1, -8], [-1, -10], [-2, -8], [-1, -6],
+                [6, -15], [2, -19], [-1, -22], [-5, -19], [-4, -15],
+                [10, -25], [4, -30], [-2, -35], [-9, -30], [-8, -25]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "armLeft",
+      "textureLayer": "arm_left",
+      "group": "leftArm",
+      "grid": [5, 6]
+    },
+    {
+      "id": "bouquetArt",
+      "textureLayer": "bouquet",
+      "group": "bouquet",
+      "grid": [8, 12],
+      "deformers": [
+        {
+          "kind": "cage",
+          "parameter": "bouquetFlex",
+          "grid": [3, 6],
+          "keyforms": [
+            {
+              "value": -1,
+              "offsets": [
+                [-42, -3], [-38, 1], [-34, 5],
+                [-32, -2], [-28, 1], [-24, 4],
+                [-18, 0], [-14, 1], [-10, 3],
+                [0, 0], [0, 0], [0, 0],
+                [0, 0], [0, 0], [0, 0],
+                [0, 0], [0, 0], [0, 0]
+              ]
+            },
+            { "value": 0 },
+            {
+              "value": 1,
+              "offsets": [
+                [34, 5], [38, 1], [42, -3],
+                [24, 4], [28, 1], [32, -2],
+                [10, 3], [14, 1], [18, 0],
+                [0, 0], [0, 0], [0, 0],
+                [0, 0], [0, 0], [0, 0],
+                [0, 0], [0, 0], [0, 0]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "handLeft",
+      "textureLayer": "hand_left",
+      "group": "bouquet",
+      "grid": [4, 4]
+    },
+    {
+      "id": "feet",
+      "textureLayer": "feet",
+      "group": "legsRig",
+      "grid": [4, 10],
+      "deformers": [
+        {
+          "kind": "cage",
+          "parameter": "kneeBend",
+          "grid": [5, 7],
+          "domain": {
+            "x": 819,
+            "y": 881,
+            "width": 482,
+            "height": 1082
+          },
+          "keyforms": [
+            {
+              "value": -1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [4, 1], [6, 2], [4, 1], [-1, 0], [-2, 0],
+                [2, 0], [3, -1], [-4, -2], [-8, -1], [-8, 0],
+                [0, 0], [0, 0], [-7, -1], [-12, 0], [-13, 1],
+                [0, 0], [0, 0], [-10, 0], [-16, 2], [-18, 3],
+                [0, 0], [0, 0], [-13, 1], [-20, 4], [-22, 5],
+                [0, 0], [0, 0], [-14, 1], [-21, 4], [-23, 5]
+              ]
+            },
+            { "value": 0 },
+            {
+              "value": 1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [-4, -1], [-6, -2], [-4, -1], [1, 0], [2, 0],
+                [-2, 0], [-3, 1], [4, 2], [8, 1], [8, 0],
+                [0, 0], [0, 0], [7, 1], [12, 0], [13, -1],
+                [0, 0], [0, 0], [10, 0], [16, -2], [18, -3],
+                [0, 0], [0, 0], [13, -1], [20, -4], [22, -5],
+                [0, 0], [0, 0], [14, -1], [21, -4], [23, -5]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skirtBack",
+      "textureLayer": "skirt_back",
+      "group": "skirtRig",
+      "grid": [12, 7],
+      "deformers": [
+        {
+          "kind": "cage",
+          "parameter": "skirtSway",
+          "grid": [5, 4],
+          "domain": {
+            "x": 737,
+            "y": 726,
+            "width": 528,
+            "height": 362
+          },
+          "keyforms": [
+            {
+              "value": -1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [-2, 0], [-3, 0], [-4, 0], [-3, 0], [-2, 0],
+                [-9, 0], [-12, 0], [-16, 0], [-12, 0], [-9, 0],
+                [-24, 0], [-32, 0], [-38, 0], [-32, 0], [-24, 0]
+              ]
+            },
+            { "value": 0 }
+          ]
+        },
+        {
+          "kind": "cage",
+          "parameter": "skirtFlutter",
+          "grid": [5, 4],
+          "domain": {
+            "x": 737,
+            "y": 726,
+            "width": 528,
+            "height": 362
+          },
+          "keyforms": [
+            {
+              "value": -1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [0, 1.2], [0, 0], [0, -1.2], [0, 0], [0, 1.2],
+                [0, 4], [0, -3], [0, 3], [0, -4], [0, 3],
+                [0, 18], [0, -14], [0, 16], [0, -18], [0, 13]
+              ]
+            },
+            { "value": 0 },
+            {
+              "value": 1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [0, -1.2], [0, 0], [0, 1.2], [0, 0], [0, -1.2],
+                [0, -4], [0, 3], [0, -3], [0, 4], [0, -3],
+                [0, -18], [0, 14], [0, -16], [0, 18], [0, -13]
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "cage",
+          "parameter": "legSwing",
+          "grid": [5, 4],
+          "domain": {
+            "x": 737,
+            "y": 726,
+            "width": 528,
+            "height": 362
+          },
+          "keyforms": [
+            { "value": -1 },
+            {
+              "value": 0,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [-1.5, 0], [-2.25, 0], [-3, 0], [-2.25, 0], [-1.5, 0],
+                [-5, 0], [-7.5, 0], [-10, 0], [-7.5, 0], [-5, 0],
+                [-12, 0], [-16, 0], [-20, 0], [-16, 0], [-12, 0]
+              ]
+            },
+            {
+              "value": 1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [-3, 0], [-4.5, 0], [-6, 0], [-4.5, 0], [-3, 0],
+                [-10, 0], [-15, 0], [-20, 0], [-15, 0], [-10, 0],
+                [-24, 0], [-32, 0], [-40, 0], [-32, 0], [-24, 0]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "legs",
+      "textureLayer": "legs",
+      "group": "legsRig",
+      "grid": [6, 12],
+      "deformers": [
+        {
+          "kind": "cage",
+          "parameter": "kneeBend",
+          "grid": [5, 7],
+          "domain": {
+            "x": 819,
+            "y": 881,
+            "width": 482,
+            "height": 1082
+          },
+          "keyforms": [
+            {
+              "value": -1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [4, 1], [6, 2], [4, 1], [-1, 0], [-2, 0],
+                [2, 0], [3, -1], [-4, -2], [-8, -1], [-8, 0],
+                [0, 0], [0, 0], [-7, -1], [-12, 0], [-13, 1],
+                [0, 0], [0, 0], [-10, 0], [-16, 2], [-18, 3],
+                [0, 0], [0, 0], [-13, 1], [-20, 4], [-22, 5],
+                [0, 0], [0, 0], [-14, 1], [-21, 4], [-23, 5]
+              ]
+            },
+            { "value": 0 },
+            {
+              "value": 1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [-4, -1], [-6, -2], [-4, -1], [1, 0], [2, 0],
+                [-2, 0], [-3, 1], [4, 2], [8, 1], [8, 0],
+                [0, 0], [0, 0], [7, 1], [12, 0], [13, -1],
+                [0, 0], [0, 0], [10, 0], [16, -2], [18, -3],
+                [0, 0], [0, 0], [13, -1], [20, -4], [22, -5],
+                [0, 0], [0, 0], [14, -1], [21, -4], [23, -5]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skirt",
+      "textureLayer": "skirt",
+      "group": "skirtRig",
+      "grid": [12, 9],
+      "deformers": [
+        {
+          "kind": "cage",
+          "parameter": "skirtSway",
+          "grid": [5, 4],
+          "domain": {
+            "x": 737,
+            "y": 726,
+            "width": 528,
+            "height": 362
+          },
+          "keyforms": [
+            {
+              "value": -1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [-2, 0], [-3, 0], [-4, 0], [-3, 0], [-2, 0],
+                [-9, 0], [-12, 0], [-16, 0], [-12, 0], [-9, 0],
+                [-24, 0], [-32, 0], [-38, 0], [-32, 0], [-24, 0]
+              ]
+            },
+            { "value": 0 }
+          ]
+        },
+        {
+          "kind": "cage",
+          "parameter": "skirtFlutter",
+          "grid": [5, 4],
+          "domain": {
+            "x": 737,
+            "y": 726,
+            "width": 528,
+            "height": 362
+          },
+          "keyforms": [
+            {
+              "value": -1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [0, 1.2], [0, 0], [0, -1.2], [0, 0], [0, 1.2],
+                [0, 4], [0, -3], [0, 3], [0, -4], [0, 3],
+                [0, 18], [0, -14], [0, 16], [0, -18], [0, 13]
+              ]
+            },
+            { "value": 0 },
+            {
+              "value": 1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [0, -1.2], [0, 0], [0, 1.2], [0, 0], [0, -1.2],
+                [0, -4], [0, 3], [0, -3], [0, 4], [0, -3],
+                [0, -18], [0, 14], [0, -16], [0, 18], [0, -13]
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "cage",
+          "parameter": "legSwing",
+          "grid": [5, 4],
+          "domain": {
+            "x": 737,
+            "y": 726,
+            "width": 528,
+            "height": 362
+          },
+          "keyforms": [
+            { "value": -1 },
+            {
+              "value": 0,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [-1.5, 0], [-2.25, 0], [-3, 0], [-2.25, 0], [-1.5, 0],
+                [-5, 0], [-7.5, 0], [-10, 0], [-7.5, 0], [-5, 0],
+                [-12, 0], [-16, 0], [-20, 0], [-16, 0], [-12, 0]
+              ]
+            },
+            {
+              "value": 1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [-3, 0], [-4.5, 0], [-6, 0], [-4.5, 0], [-3, 0],
+                [-10, 0], [-15, 0], [-20, 0], [-15, 0], [-10, 0],
+                [-24, 0], [-32, 0], [-40, 0], [-32, 0], [-24, 0]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "torso",
+      "textureLayer": "torso",
+      "group": "chest",
+      "grid": [7, 8],
+      "deformers": [
+        {
+          "kind": "cage",
+          "parameter": "breath",
+          "grid": [3, 3],
+          "keyforms": [
+            {
+              "value": -1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0],
+                [1.2, 0.2], [0, 0.4], [-1.2, 0.2],
+                [0, 0], [0, 0], [0, 0]
+              ]
+            },
+            { "value": 0 },
+            {
+              "value": 1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0],
+                [-1.2, -0.2], [0, -0.4], [1.2, -0.2],
+                [0, 0], [0, 0], [0, 0]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "neck",
+      "textureLayer": "neck",
+      "group": "chest",
+      "grid": [3, 4]
+    },
+    {
+      "id": "armRight",
+      "textureLayer": "arm_right",
+      "group": "rightArm",
+      "grid": [8, 8]
+    },
+    {
+      "id": "bagsArt",
+      "textureLayer": "bags",
+      "group": "bags",
+      "grid": [8, 8],
+      "deformers": [
+        {
+          "kind": "cage",
+          "parameter": "bagLag",
+          "grid": [3, 3],
+          "keyforms": [
+            {
+              "value": -1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0],
+                [-1.5, 0], [-2.5, 0], [-3.5, 0],
+                [-3, 0], [-5.5, 0], [-8, 0]
+              ]
+            },
+            { "value": 0 },
+            {
+              "value": 1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0],
+                [3.5, 0], [2.5, 0], [1.5, 0],
+                [8, 0], [5.5, 0], [3, 0]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eyebrowLeft",
+      "textureLayer": "eyebrow",
+      "group": "head",
+      "bounds": {
+        "x": 890,
+        "y": 192,
+        "width": 61,
+        "height": 11
+      },
+      "grid": [4, 3],
+      "deformers": [
+        {
+          "kind": "cage",
+          "parameter": "blinkLeft",
+          "grid": [2, 2],
+          "keyforms": [
+            { "value": 0 },
+            {
+              "value": 1,
+              "offsets": [[0, -1.5], [0, -1.5], [0, -1.5], [0, -1.5]]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eyebrowRight",
+      "textureLayer": "eyebrow",
+      "group": "head",
+      "bounds": {
+        "x": 1010,
+        "y": 212,
+        "width": 56,
+        "height": 25
+      },
+      "grid": [4, 3],
+      "deformers": [
+        {
+          "kind": "cage",
+          "parameter": "blinkRight",
+          "grid": [2, 2],
+          "keyforms": [
+            { "value": 0 },
+            {
+              "value": 1,
+              "offsets": [[0, -1.5], [0, -1.5], [0, -1.5], [0, -1.5]]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ears",
+      "textureLayer": "ears",
+      "group": "head",
+      "grid": [4, 3]
+    },
+    {
+      "id": "face",
+      "textureLayer": "face",
+      "group": "head",
+      "grid": [7, 8]
+    },
+    {
+      "id": "nose",
+      "textureLayer": "nose",
+      "group": "head",
+      "grid": [2, 2]
+    },
+    {
+      "id": "eyewear",
+      "textureLayer": "eyewear",
+      "group": "head",
+      "grid": [6, 3]
+    },
+    {
+      "id": "mouth",
+      "textureLayer": "mouth",
+      "group": "head",
+      "grid": [4, 3]
+    },
+    {
+      "id": "eyeWhiteLeft",
+      "textureLayer": "eyewhite",
+      "group": "head",
+      "bounds": {
+        "x": 895,
+        "y": 223,
+        "width": 47,
+        "height": 40
+      },
+      "grid": [7, 5],
+      "maskSource": true,
+      "opacityBinding": {
+        "parameter": "blinkLeft",
+        "keyforms": [
+          { "value": 0, "opacity": 1 },
+          { "value": 0.72, "opacity": 0.72 },
+          { "value": 1, "opacity": 0 }
+        ]
+      },
+      "deformers": [
+        {
+          "kind": "axisScale",
+          "parameter": "blinkLeft",
+          "center": [918.5, 244],
+          "angleDegrees": 13,
+          "keyforms": [
+            { "value": 0, "scale": 1, "translate": 0, "curve": 0 },
+            { "value": 0.55, "scale": 0.48, "translate": 1, "curve": 1 },
+            { "value": 1, "scale": 0.04, "translate": 2, "curve": 2.5 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eyeWhiteRight",
+      "textureLayer": "eyewhite",
+      "group": "head",
+      "bounds": {
+        "x": 1003,
+        "y": 247,
+        "width": 48,
+        "height": 41
+      },
+      "grid": [7, 5],
+      "maskSource": true,
+      "opacityBinding": {
+        "parameter": "blinkRight",
+        "keyforms": [
+          { "value": 0, "opacity": 1 },
+          { "value": 0.72, "opacity": 0.72 },
+          { "value": 1, "opacity": 0 }
+        ]
+      },
+      "deformers": [
+        {
+          "kind": "axisScale",
+          "parameter": "blinkRight",
+          "center": [1027, 268],
+          "angleDegrees": 13,
+          "keyforms": [
+            { "value": 0, "scale": 1, "translate": 0, "curve": 0 },
+            { "value": 0.55, "scale": 0.48, "translate": 1, "curve": 1 },
+            { "value": 1, "scale": 0.04, "translate": 2, "curve": 2.5 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "irisLeft",
+      "textureLayer": "irides",
+      "group": "head",
+      "bounds": {
+        "x": 908,
+        "y": 225,
+        "width": 33,
+        "height": 37
+      },
+      "grid": [6, 5],
+      "clip": "eyeWhiteLeft",
+      "opacityBinding": {
+        "parameter": "blinkLeft",
+        "keyforms": [
+          { "value": 0, "opacity": 1 },
+          { "value": 0.55, "opacity": 0.65 },
+          { "value": 0.85, "opacity": 0.15 },
+          { "value": 1, "opacity": 0 }
+        ]
+      },
+      "deformers": [
+        {
+          "kind": "axisScale",
+          "parameter": "blinkLeft",
+          "center": [918.5, 244],
+          "angleDegrees": 13,
+          "keyforms": [
+            { "value": 0, "scale": 1, "translate": 0 },
+            { "value": 0.55, "scale": 0.45, "translate": 1 },
+            { "value": 1, "scale": 0.03, "translate": 2 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "irisRight",
+      "textureLayer": "irides",
+      "group": "head",
+      "bounds": {
+        "x": 1004,
+        "y": 249,
+        "width": 35,
+        "height": 36
+      },
+      "grid": [6, 5],
+      "clip": "eyeWhiteRight",
+      "opacityBinding": {
+        "parameter": "blinkRight",
+        "keyforms": [
+          { "value": 0, "opacity": 1 },
+          { "value": 0.55, "opacity": 0.65 },
+          { "value": 0.85, "opacity": 0.15 },
+          { "value": 1, "opacity": 0 }
+        ]
+      },
+      "deformers": [
+        {
+          "kind": "axisScale",
+          "parameter": "blinkRight",
+          "center": [1027, 268],
+          "angleDegrees": 13,
+          "keyforms": [
+            { "value": 0, "scale": 1, "translate": 0 },
+            { "value": 0.55, "scale": 0.45, "translate": 1 },
+            { "value": 1, "scale": 0.03, "translate": 2 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eyelashLeft",
+      "textureLayer": "eyelash",
+      "group": "head",
+      "bounds": {
+        "x": 885,
+        "y": 214,
+        "width": 67,
+        "height": 48
+      },
+      "grid": [7, 5],
+      "deformers": [
+        {
+          "kind": "axisScale",
+          "parameter": "blinkLeft",
+          "center": [918.5, 244],
+          "angleDegrees": 13,
+          "keyforms": [
+            { "value": 0, "scale": 1, "translate": 0, "curve": 0 },
+            { "value": 0.55, "scale": 0.53, "translate": 1, "curve": 1.4 },
+            { "value": 1, "scale": 0.12, "translate": 2, "curve": 3.5 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eyelashRight",
+      "textureLayer": "eyelash",
+      "group": "head",
+      "bounds": {
+        "x": 994,
+        "y": 236,
+        "width": 69,
+        "height": 51
+      },
+      "grid": [7, 5],
+      "deformers": [
+        {
+          "kind": "axisScale",
+          "parameter": "blinkRight",
+          "center": [1028.5, 264],
+          "angleDegrees": 13,
+          "keyforms": [
+            { "value": 0, "scale": 1, "translate": 0, "curve": 0 },
+            { "value": 0.55, "scale": 0.53, "translate": 1, "curve": 1.4 },
+            { "value": 1, "scale": 0.12, "translate": 2, "curve": 3.5 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frontHair",
+      "textureLayer": "front hair",
+      "group": "head",
+      "grid": [8, 12],
+      "deformers": [
+        {
+          "kind": "cage",
+          "parameter": "frontHairSway",
+          "grid": [5, 5],
+          "keyforms": [
+            {
+              "value": -1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [-2, 0], [-3, 1], [-4, 1], [-5, 0], [-6, -1],
+                [-5, 1], [-7, 2], [-9, 1], [-11, 0], [-13, -1],
+                [-12, 1], [-17, 4], [-22, 3], [-27, 0], [-31, -2],
+                [-20, 2], [-28, 5], [-36, 3], [-45, -1], [-55, -4]
+              ]
+            },
+            { "value": 0 },
+            {
+              "value": 1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [2, 0], [3, -1], [4, -1], [5, 0], [7, 1],
+                [5, -1], [8, -2], [10, -1], [12, 0], [15, 1],
+                [13, -1], [18, -4], [23, -3], [29, 0], [35, 2],
+                [22, -2], [31, -5], [40, -3], [49, 1], [60, 4]
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "cage",
+          "parameter": "frontHairLift",
+          "grid": [5, 5],
+          "keyforms": [
+            {
+              "value": -1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [0, 1], [-1, 2], [0, 2], [1, 2], [0, 1],
+                [-1, 3], [-1, 5], [0, 6], [1, 5], [1, 3],
+                [-2, 8], [-1, 10], [0, 12], [2, 10], [2, 8],
+                [-4, 12], [-1, 16], [1, 18], [4, 16], [4, 12]
+              ]
+            },
+            { "value": 0 },
+            {
+              "value": 1,
+              "offsets": [
+                [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
+                [0, -1], [1, -2], [0, -2], [-1, -2], [0, -1],
+                [1, -3], [1, -5], [0, -6], [-1, -5], [-1, -3],
+                [2, -8], [1, -10], [0, -12], [-2, -10], [-2, -8],
+                [4, -12], [1, -16], [-1, -18], [-4, -16], [-4, -12]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

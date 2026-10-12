@@ -1,0 +1,118 @@
+{
+  "params": [
+    {
+      "id": "fade",
+      "min": 0,
+      "max": 1,
+      "default": 0
+    }
+  ],
+  "nodes": [
+    {
+      "id": "root",
+      "type": "group",
+      "children": [
+        {
+          "id": "mask_holder",
+          "type": "group",
+          "children": [
+            {
+              "id": "src_a",
+              "type": "sprite",
+              "rect": [
+                10,
+                10,
+                40,
+                40
+              ],
+              "opacity": 0,
+              "texture": "half",
+              "z": 1
+            },
+            {
+              "id": "src_b",
+              "type": "sprite",
+              "rect": [
+                34,
+                22,
+                40,
+                40
+              ],
+              "opacity": 0,
+              "texture": "half",
+              "z": 2
+            }
+          ]
+        },
+        {
+          "id": "clipped",
+          "type": "sprite",
+          "rect": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "z": 10,
+          "texture": "art",
+          "mask": {
+            "mode": "alpha",
+            "sources": [
+              "src_a",
+              "src_b"
+            ]
+          }
+        },
+        {
+          "id": "inv",
+          "type": "sprite",
+          "rect": [
+            64,
+            64,
+            64,
+            64
+          ],
+          "z": 20,
+          "texture": "art2",
+          "mask": {
+            "mode": "inverted",
+            "sources": [
+              "src_c"
+            ]
+          }
+        },
+        {
+          "id": "src_c",
+          "type": "sprite",
+          "rect": [
+            84,
+            84,
+            40,
+            40
+          ],
+          "z": 30,
+          "texture": "circle"
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "target": "mask_holder",
+      "property": "opacity",
+      "params": [
+        "fade"
+      ],
+      "axes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "values": [
+        1,
+        0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "params": [],
+  "nodes": [
+    {
+      "id": "root",
+      "type": "group",
+      "children": [
+        {
+          "id": "halo",
+          "type": "sprite",
+          "rect": [
+            64,
+            16,
+            64,
+            64
+          ],
+          "z": 5
+        },
+        {
+          "id": "bg",
+          "type": "sprite",
+          "rect": [
+            0,
+            0,
+            64,
+            128
+          ],
+          "z": 10
+        },
+        {
+          "id": "glow",
+          "type": "sprite",
+          "rect": [
+            32,
+            32,
+            64,
+            64
+          ],
+          "z": 20,
+          "blend": "additive"
+        },
+        {
+          "id": "blush",
+          "type": "sprite",
+          "rect": [
+            16,
+            80,
+            96,
+            32
+          ],
+          "z": 30,
+          "blend": "multiply"
+        }
+      ]
+    }
+  ],
+  "bindings": []
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://refrain.moe/lyre/schemas/0.1/expression.schema.json",
+  "title": "Lyre expressions/*.exp.json (§10.1)",
+  "type": "object",
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "fade_in": { "type": "number", "minimum": 0 },
+    "fade_out": { "type": "number", "minimum": 0 },
+    "params": {
+      "type": "array",
+      "maxItems": 100000,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/paramId" },
+          "value": { "type": "number" },
+          "blend": { "enum": ["add", "multiply", "overwrite"] }
+        },
+        "required": ["id", "value", "blend"]
+      }
+    }
+  },
+  "required": ["id", "params"]
+}

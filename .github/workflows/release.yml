@@ -1,0 +1,82 @@
+name: Release
+
+# Publishes the public @refrain-lyre packages when a release tag lands.
+# The tag is the only trigger: nothing here bumps versions or commits.
+# See RELEASING.md for the procedure, including the one-time bootstrap.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+# One release at a time; never cancel a publish in progress.
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish @refrain-lyre packages
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      contents: read
+      # Lets npm trusted publishing (OIDC) mint the publish credential and
+      # attach provenance. Harmless during the token bootstrap.
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11.15.1
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+      - run: pnpm install --frozen-lockfile
+
+      - name: Tag must sit on master and name the package version
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME}"
+          version="$(node -p "require('./packages/core/package.json').version")"
+          if [ "$tag" != "v$version" ]; then
+            echo "tag $tag does not match package version $version" >&2
+            exit 1
+          fi
+          git fetch --no-tags origin master
+          if ! git merge-base --is-ancestor "$GITHUB_SHA" origin/master; then
+            echo "tag commit $GITHUB_SHA is not on master" >&2
+            exit 1
+          fi
+          for manifest in packages/*/package.json; do
+            if [ "$(node -p "const m=require('./$manifest'); m.private ? 'private' : m.version")" = private ]; then
+              continue
+            fi
+            if [ "$(node -p "require('./$manifest').version")" != "$version" ]; then
+              echo "$manifest is not at version $version" >&2
+              exit 1
+            fi
+          done
+
+      # Every package's prepublishOnly hook runs tools/prepublish.mjs, which
+      # re-runs the full repository release gate (pnpm release:check) before
+      # its tarball is built. Recursive publish walks the workspace in
+      # dependency order and skips versions the registry already has, so a
+      # rerun after a partial failure publishes only what is missing.
+      #
+      # --no-git-checks is required here and only here: a tag checkout is a
+      # detached HEAD, so pnpm's "on the publish branch" check cannot pass,
+      # and the step above already proves the commit is on master. The
+      # checked-out tree is immutable, which is what the local check protects.
+      - name: Publish
+        run: pnpm -r publish --access public --no-git-checks
+        env:
+          # Bootstrap only. Set the NPM_TOKEN secret on the `npm` environment
+          # for the very first publish of the scope; delete it once trusted
+          # publishing is configured. When it is absent, pnpm uses OIDC.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

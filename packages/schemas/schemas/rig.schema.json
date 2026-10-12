@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://refrain.moe/lyre/schemas/0.1/rig.schema.json",
+  "title": "Lyre rig.json (§5–§7)",
+  "type": "object",
+  "properties": {
+    "params": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/param" },
+      "maxItems": 10000
+    },
+    "nodes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/groupNode" },
+      "minItems": 1,
+      "maxItems": 1,
+      "$comment": "Exactly one root node, and it is a group (§5)."
+    },
+    "bindings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/binding" },
+      "maxItems": 100000
+    }
+  },
+  "required": ["params", "nodes", "bindings"],
+  "$defs": {
+    "param": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/paramId" },
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "default": { "type": "number" },
+        "wrap": { "type": "boolean" }
+      },
+      "required": ["id", "min", "max", "default"]
+    },
+    "nodeCommon": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "type": { "enum": ["group", "sprite", "warp", "rotator"] }
+      },
+      "required": ["id", "type"]
+    },
+    "node": {
+      "allOf": [{ "$ref": "#/$defs/nodeCommon" }],
+      "oneOf": [
+        { "$ref": "#/$defs/groupNode" },
+        { "$ref": "#/$defs/spriteNode" },
+        { "$ref": "#/$defs/warpNode" },
+        { "$ref": "#/$defs/rotatorNode" }
+      ]
+    },
+    "children": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/node" }
+    },
+    "groupNode": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "type": { "const": "group" },
+        "opacity": { "$ref": "common.schema.json#/$defs/opacity" },
+        "children": { "$ref": "#/$defs/children" }
+      },
+      "required": ["id", "type"]
+    },
+    "spriteNode": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "type": { "const": "sprite" },
+        "rect": { "$ref": "common.schema.json#/$defs/rect" },
+        "texture": { "$ref": "common.schema.json#/$defs/id" },
+        "z": { "type": "integer" },
+        "opacity": { "$ref": "common.schema.json#/$defs/opacity" },
+        "blend": { "enum": ["normal", "additive", "multiply"] },
+        "mesh": { "$ref": "#/$defs/mesh" },
+        "mask": { "$ref": "#/$defs/mask" },
+        "children": { "type": "array", "maxItems": 0 }
+      },
+      "required": ["id", "type", "rect"]
+    },
+    "warpNode": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "type": { "const": "warp" },
+        "rect": { "$ref": "#/$defs/warpRect" },
+        "cols": { "type": "integer", "minimum": 1, "maximum": 64 },
+        "rows": { "type": "integer", "minimum": 1, "maximum": 64 },
+        "children": { "$ref": "#/$defs/children" }
+      },
+      "required": ["id", "type", "rect", "cols", "rows"]
+    },
+    "warpRect": {
+      "type": "array",
+      "prefixItems": [
+        { "type": "number" },
+        { "type": "number" },
+        { "type": "number", "exclusiveMinimum": 0 },
+        { "type": "number", "exclusiveMinimum": 0 }
+      ],
+      "items": false,
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "rotatorNode": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "type": { "const": "rotator" },
+        "pivot": { "$ref": "common.schema.json#/$defs/vec2" },
+        "angle": { "type": "number" },
+        "scale": { "type": "number" },
+        "children": { "$ref": "#/$defs/children" }
+      },
+      "required": ["id", "type", "pivot"]
+    },
+    "mesh": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "grid" },
+            "cols": { "type": "integer", "minimum": 1, "maximum": 64 },
+            "rows": { "type": "integer", "minimum": 1, "maximum": 64 }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "explicit" },
+            "points": {
+              "type": "array",
+              "items": { "$ref": "common.schema.json#/$defs/vec2" },
+              "maxItems": 65536
+            },
+            "tris": {
+              "type": "array",
+              "maxItems": 131072,
+              "items": {
+                "type": "array",
+                "items": { "type": "integer", "minimum": 0 },
+                "minItems": 3,
+                "maxItems": 3
+              }
+            }
+          },
+          "required": ["type", "points", "tris"]
+        }
+      ]
+    },
+    "mask": {
+      "type": "object",
+      "properties": {
+        "mode": { "enum": ["alpha", "inverted"] },
+        "sources": {
+          "type": "array",
+          "items": { "$ref": "common.schema.json#/$defs/id" },
+          "minItems": 1,
+          "maxItems": 256,
+          "uniqueItems": true
+        }
+      },
+      "required": ["mode", "sources"]
+    },
+    "binding": {
+      "type": "object",
+      "properties": {
+        "target": { "$ref": "common.schema.json#/$defs/id" },
+        "property": {
+          "enum": ["angle", "scale", "pivot_offset", "opacity", "z", "offset", "verts", "grid"]
+        },
+        "params": {
+          "type": "array",
+          "items": { "$ref": "common.schema.json#/$defs/paramId" },
+          "minItems": 1,
+          "maxItems": 3,
+          "uniqueItems": true
+        },
+        "axes": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 1,
+            "maxItems": 33
+          },
+          "minItems": 1,
+          "maxItems": 3
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "type": "number" },
+              { "$ref": "common.schema.json#/$defs/vec2" },
+              {
+                "type": "array",
+                "items": { "$ref": "common.schema.json#/$defs/vec2" }
+              }
+            ]
+          },
+          "minItems": 1
+        }
+      },
+      "required": ["target", "property", "params", "axes", "values"]
+    }
+  }
+}

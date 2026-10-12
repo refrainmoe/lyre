@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://refrain.moe/lyre/schemas/0.1/variants.schema.json",
+  "title": "Lyre variants.json (§10.3)",
+  "type": "object",
+  "properties": {
+    "slots": {
+      "type": "array",
+      "maxItems": 4096,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "default": { "$ref": "common.schema.json#/$defs/id" },
+          "options": {
+            "type": "array",
+            "maxItems": 100000,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "$ref": "common.schema.json#/$defs/id" },
+                "nodes": {
+                  "type": "array",
+                  "items": { "$ref": "common.schema.json#/$defs/id" },
+                  "maxItems": 1000000
+                }
+              },
+              "required": ["id", "nodes"]
+            },
+            "minItems": 1
+          }
+        },
+        "required": ["id", "default", "options"]
+      }
+    }
+  },
+  "required": ["slots"]
+}

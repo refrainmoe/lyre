@@ -1,0 +1,49 @@
+{
+  "model": "../models/m07_wrap_seam.lyre",
+  "fps": 60,
+  "steps": 5,
+  "events": [
+    {
+      "step": 0,
+      "set": {
+        "spin": 60,
+        "ref": 60
+      }
+    },
+    {
+      "step": 1,
+      "set": {
+        "spin": 240,
+        "ref": 240
+      }
+    },
+    {
+      "step": 2,
+      "set": {
+        "spin": 300,
+        "ref": 300
+      }
+    },
+    {
+      "step": 3,
+      "set": {
+        "spin": 450,
+        "ref": 450
+      }
+    },
+    {
+      "step": 4,
+      "set": {
+        "spin": 359.9,
+        "ref": 0
+      }
+    }
+  ],
+  "captures": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "lyre": "0.1",
+  "id": "m10_opacity_combine",
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "origin": [
+      0,
+      0
+    ]
+  },
+  "capabilities": [
+    "core"
+  ],
+  "files": {
+    "rig": "rig.json"
+  },
+  "$note": "§7 rule 5: opacity factors multiply unclamped and clamp once post-combination; §8.1.5 ancestor opacity products."
+}

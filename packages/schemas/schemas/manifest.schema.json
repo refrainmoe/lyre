@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://refrain.moe/lyre/schemas/0.1/manifest.schema.json",
+  "title": "Lyre manifest.json (§3.1)",
+  "type": "object",
+  "properties": {
+    "lyre": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "name": { "type": "string" },
+    "canvas": {
+      "type": "object",
+      "properties": {
+        "width": { "type": "integer", "minimum": 1, "maximum": 16384 },
+        "height": { "type": "integer", "minimum": 1, "maximum": 16384 },
+        "origin": { "$ref": "common.schema.json#/$defs/vec2" }
+      },
+      "required": ["width", "height", "origin"]
+    },
+    "capabilities": {
+      "type": "array",
+      "maxItems": 128,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_-]*$",
+        "maxLength": 128
+      }
+    },
+    "files": {
+      "type": "object",
+      "properties": {
+        "rig": { "type": "string", "minLength": 1 },
+        "physics": { "type": "string", "minLength": 1 },
+        "variants": { "type": "string", "minLength": 1 },
+        "atlas": { "type": "string", "minLength": 1 },
+        "expressions": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "maxItems": 4096,
+          "uniqueItems": true
+        },
+        "motions": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "maxItems": 4096,
+          "uniqueItems": true
+        }
+      }
+    },
+    "author": { "type": "string" }
+  },
+  "required": ["lyre", "id", "canvas"]
+}

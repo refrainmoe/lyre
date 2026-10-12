@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+dist-types/
+build/
+*.tsbuildinfo
+
+# Test / coverage
+coverage/
+.vitest/
+
+# Conformance run artifacts (goldens themselves are committed; actual/diff output is not)
+conformance/actual/
+conformance/diff/
+
+# Packaged models (built .lyre ZIP archives are ignored; unpacked *.lyre/ model
+# directories are committed — the trailing-slash negation re-includes directories)
+*.lyre
+!*.lyre/
+
+# Logs & caches
+*.log
+__pycache__/
+*.py[cod]
+.cache/
+.turbo/
+.eslintcache
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+!.env.example

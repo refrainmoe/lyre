@@ -1,0 +1,24 @@
+{
+  "lyre": "0.1",
+  "id": "m12_motions",
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "origin": [
+      0,
+      0
+    ]
+  },
+  "capabilities": [
+    "core",
+    "motion"
+  ],
+  "files": {
+    "rig": "rig.json",
+    "motions": [
+      "motions/wave.motion.json",
+      "motions/drift.motion.json"
+    ]
+  },
+  "$note": "§10.2: bezier/step/linear easing, loop wrap, start-order lerp layering at fractional weights."
+}

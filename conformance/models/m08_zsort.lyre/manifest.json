@@ -1,0 +1,19 @@
+{
+  "lyre": "0.1",
+  "id": "m08_zsort",
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "origin": [
+      0,
+      0
+    ]
+  },
+  "capabilities": [
+    "core"
+  ],
+  "files": {
+    "rig": "rig.json"
+  },
+  "$note": "§8.1.6: flat global sort, group z-delta region jump, single rounding of the accumulated real z, exact ±0.5 ties toward +∞, document-order ties."
+}

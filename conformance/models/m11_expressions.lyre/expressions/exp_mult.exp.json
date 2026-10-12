@@ -1,0 +1,12 @@
+{
+  "id": "exp_mult",
+  "fade_in": 0,
+  "fade_out": 0,
+  "params": [
+    {
+      "id": "c",
+      "value": 0.2,
+      "blend": "multiply"
+    }
+  ]
+}

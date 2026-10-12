@@ -1,0 +1,142 @@
+{
+  "params": [
+    {
+      "id": "p",
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "q",
+      "min": 0,
+      "max": 1,
+      "default": 0
+    }
+  ],
+  "nodes": [
+    {
+      "id": "root",
+      "type": "group",
+      "children": [
+        {
+          "id": "outer",
+          "type": "rotator",
+          "pivot": [
+            0,
+            0
+          ],
+          "children": [
+            {
+              "id": "upper",
+              "type": "sprite",
+              "rect": [
+                -6,
+                0,
+                12,
+                32
+              ],
+              "z": 10
+            },
+            {
+              "id": "inner",
+              "type": "rotator",
+              "pivot": [
+                0,
+                30
+              ],
+              "children": [
+                {
+                  "id": "lower",
+                  "type": "sprite",
+                  "rect": [
+                    -5,
+                    30,
+                    10,
+                    30
+                  ],
+                  "z": 20
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "target": "outer",
+      "property": "angle",
+      "params": [
+        "p"
+      ],
+      "axes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "values": [
+        0,
+        60
+      ]
+    },
+    {
+      "target": "outer",
+      "property": "scale",
+      "params": [
+        "p"
+      ],
+      "axes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "values": [
+        1,
+        1.25
+      ]
+    },
+    {
+      "target": "inner",
+      "property": "angle",
+      "params": [
+        "p"
+      ],
+      "axes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "values": [
+        0,
+        -90
+      ]
+    },
+    {
+      "target": "inner",
+      "property": "pivot_offset",
+      "params": [
+        "q"
+      ],
+      "axes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          14,
+          0
+        ]
+      ]
+    }
+  ]
+}

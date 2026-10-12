@@ -1,0 +1,66 @@
+{
+  "model": "../models/m11_expressions.lyre",
+  "fps": 60,
+  "steps": 121,
+  "events": [
+    {
+      "step": 0,
+      "set": {
+        "a": -0.5,
+        "b": 0.2,
+        "c": 0.8
+      }
+    },
+    {
+      "step": 0,
+      "expression": {
+        "id": "exp_over",
+        "weight": 0.5
+      }
+    },
+    {
+      "step": 0,
+      "expression": {
+        "id": "exp_add",
+        "weight": 1
+      }
+    },
+    {
+      "step": 0,
+      "expression": {
+        "id": "exp_mult",
+        "weight": 0.5
+      }
+    },
+    {
+      "step": 30,
+      "expression": {
+        "id": "exp_over",
+        "weight": 0
+      }
+    },
+    {
+      "step": 31,
+      "expression": {
+        "id": "exp_over",
+        "action": "activate"
+      }
+    },
+    {
+      "step": 100,
+      "expression": {
+        "id": "exp_over",
+        "action": "deactivate"
+      }
+    }
+  ],
+  "captures": [
+    0,
+    30,
+    45,
+    61,
+    100,
+    115,
+    120
+  ]
+}

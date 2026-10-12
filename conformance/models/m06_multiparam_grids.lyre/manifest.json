@@ -1,0 +1,19 @@
+{
+  "lyre": "0.1",
+  "id": "m06_multiparam_grids",
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "origin": [
+      0,
+      0
+    ]
+  },
+  "capabilities": [
+    "core"
+  ],
+  "files": {
+    "rig": "rig.json"
+  },
+  "$note": "§7 rule 2/3: multi-param row-major grids (first param slowest), non-uniform axes, clamp beyond the axis range."
+}

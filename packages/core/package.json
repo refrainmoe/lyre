@@ -1,0 +1,46 @@
+{
+  "name": "@refrain-lyre/core",
+  "version": "0.1.0",
+  "license": "Unlicense",
+  "description": "Dependency-free Lyrical Refrain (Lyre) evaluation core: params → deformed geometry",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/refrainmoe/lyre.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/refrainmoe/lyre/tree/master/packages/core#readme",
+  "bugs": {
+    "url": "https://github.com/refrainmoe/lyre/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --sourcemap --clean && tsc --build --force",
+    "prepack": "pnpm build",
+    "prepublishOnly": "node ../../tools/prepublish.mjs",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.0",
+    "vitest": "^3.0.0"
+  }
+}

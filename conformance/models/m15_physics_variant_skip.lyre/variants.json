@@ -1,0 +1,20 @@
+{
+  "slots": [
+    {
+      "id": "cape",
+      "default": "none",
+      "options": [
+        {
+          "id": "none",
+          "nodes": []
+        },
+        {
+          "id": "on",
+          "nodes": [
+            "cape_grp"
+          ]
+        }
+      ]
+    }
+  ]
+}

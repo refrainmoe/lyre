@@ -1,0 +1,21 @@
+{
+  "lyre": "0.1",
+  "id": "m14_physics",
+  "canvas": {
+    "width": 160,
+    "height": 160,
+    "origin": [
+      80,
+      20
+    ]
+  },
+  "capabilities": [
+    "core",
+    "physics"
+  ],
+  "files": {
+    "rig": "rig.json",
+    "physics": "physics.json"
+  },
+  "$note": "§9: x/angle inputs, asymmetric-range default-centred normalization (asym_in 0..1 default 0.3), multi-link chains, order-independent overwrite+add fan-in to asway, wind; outputs consumed by ordinary bindings."
+}

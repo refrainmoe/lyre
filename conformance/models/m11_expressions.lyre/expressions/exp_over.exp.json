@@ -1,0 +1,12 @@
+{
+  "id": "exp_over",
+  "fade_in": 0.5,
+  "fade_out": 0.5,
+  "params": [
+    {
+      "id": "a",
+      "value": 1,
+      "blend": "overwrite"
+    }
+  ]
+}

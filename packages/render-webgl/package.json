@@ -1,0 +1,54 @@
+{
+  "name": "@refrain-lyre/render-webgl",
+  "version": "0.1.0",
+  "license": "Unlicense",
+  "description": "WebGL2 renderer for Lyrical Refrain (Lyre) models",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/refrainmoe/lyre.git",
+    "directory": "packages/render-webgl"
+  },
+  "homepage": "https://github.com/refrainmoe/lyre/tree/master/packages/render-webgl#readme",
+  "bugs": {
+    "url": "https://github.com/refrainmoe/lyre/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --sourcemap --clean && tsc --build --force",
+    "prepack": "pnpm build",
+    "prepublishOnly": "node ../../tools/prepublish.mjs",
+    "e2e": "tsx e2e/run.ts"
+  },
+  "peerDependencies": {
+    "@refrain-lyre/core": "^0.1.0"
+  },
+  "devDependencies": {
+    "@refrain-lyre/core": "workspace:*",
+    "@refrain-lyre/render-soft": "workspace:^",
+    "@refrain-lyre/validate": "workspace:^",
+    "esbuild": "^0.28.1",
+    "playwright": "^1.61.1",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.0"
+  }
+}

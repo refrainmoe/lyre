@@ -1,0 +1,8 @@
+**/dist/
+**/dist-types/
+**/*.lyre/
+conformance/goldens/
+conformance/timelines/
+conformance/python/RESULTS.md
+pnpm-lock.yaml
+spec/

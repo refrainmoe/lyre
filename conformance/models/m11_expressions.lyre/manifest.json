@@ -1,0 +1,24 @@
+{
+  "lyre": "0.1",
+  "id": "m11_expressions",
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "origin": [
+      0,
+      0
+    ]
+  },
+  "capabilities": [
+    "core"
+  ],
+  "files": {
+    "rig": "rig.json",
+    "expressions": [
+      "expressions/exp_over.exp.json",
+      "expressions/exp_add.exp.json",
+      "expressions/exp_mult.exp.json"
+    ]
+  },
+  "$note": "§6.1/§10.1/D.8: expressions apply after host input; overwrite/add/multiply at fractional weights; linear fades."
+}

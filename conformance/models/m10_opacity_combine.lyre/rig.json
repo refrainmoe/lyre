@@ -1,0 +1,115 @@
+{
+  "params": [
+    {
+      "id": "p",
+      "min": 0,
+      "max": 1,
+      "default": 0
+    }
+  ],
+  "nodes": [
+    {
+      "id": "root",
+      "type": "group",
+      "children": [
+        {
+          "id": "bg",
+          "type": "sprite",
+          "rect": [
+            0,
+            48,
+            128,
+            32
+          ],
+          "z": 1
+        },
+        {
+          "id": "boost",
+          "type": "sprite",
+          "rect": [
+            8,
+            44,
+            40,
+            40
+          ],
+          "z": 10,
+          "opacity": 0.5,
+          "texture": "sq"
+        },
+        {
+          "id": "g",
+          "type": "group",
+          "children": [
+            {
+              "id": "inner",
+              "type": "sprite",
+              "rect": [
+                72,
+                44,
+                40,
+                40
+              ],
+              "z": 20,
+              "opacity": 0.9,
+              "texture": "sq2"
+            }
+          ],
+          "opacity": 0.8
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "target": "boost",
+      "property": "opacity",
+      "params": [
+        "p"
+      ],
+      "axes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "values": [
+        1,
+        2.4
+      ]
+    },
+    {
+      "target": "boost",
+      "property": "opacity",
+      "params": [
+        "p"
+      ],
+      "axes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "values": [
+        1,
+        1.25
+      ]
+    },
+    {
+      "target": "g",
+      "property": "opacity",
+      "params": [
+        "p"
+      ],
+      "axes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "values": [
+        1,
+        0.5
+      ]
+    }
+  ]
+}

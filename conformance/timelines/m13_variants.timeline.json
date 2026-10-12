@@ -1,0 +1,47 @@
+{
+  "model": "../models/m13_variants.lyre",
+  "fps": 60,
+  "steps": 4,
+  "events": [
+    {
+      "step": 0,
+      "set": {
+        "p": 1
+      }
+    },
+    {
+      "step": 1,
+      "variant": {
+        "slot": "outfit",
+        "option": "b"
+      }
+    },
+    {
+      "step": 1,
+      "variant": {
+        "slot": "badge",
+        "option": "star"
+      }
+    },
+    {
+      "step": 2,
+      "variant": {
+        "slot": "outfit",
+        "option": "a"
+      }
+    },
+    {
+      "step": 3,
+      "variant": {
+        "slot": "badge",
+        "option": "none"
+      }
+    }
+  ],
+  "captures": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

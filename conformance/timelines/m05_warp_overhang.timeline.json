@@ -1,0 +1,23 @@
+{
+  "model": "../models/m05_warp_overhang.lyre",
+  "fps": 60,
+  "steps": 2,
+  "events": [
+    {
+      "step": 0,
+      "set": {
+        "p": 0
+      }
+    },
+    {
+      "step": 1,
+      "set": {
+        "p": 1
+      }
+    }
+  ],
+  "captures": [
+    0,
+    1
+  ]
+}

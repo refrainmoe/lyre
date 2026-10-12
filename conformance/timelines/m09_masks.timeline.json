@@ -1,0 +1,23 @@
+{
+  "model": "../models/m09_masks.lyre",
+  "fps": 60,
+  "steps": 2,
+  "events": [
+    {
+      "step": 0,
+      "set": {
+        "fade": 0
+      }
+    },
+    {
+      "step": 1,
+      "set": {
+        "fade": 1
+      }
+    }
+  ],
+  "captures": [
+    0,
+    1
+  ]
+}

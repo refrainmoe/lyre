@@ -1,0 +1,118 @@
+{
+  "params": [
+    {
+      "id": "px",
+      "min": -1,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "py",
+      "min": -1,
+      "max": 1,
+      "default": 0
+    }
+  ],
+  "nodes": [
+    {
+      "id": "root",
+      "type": "group",
+      "children": [
+        {
+          "id": "box",
+          "type": "sprite",
+          "rect": [
+            55,
+            55,
+            18,
+            18
+          ],
+          "z": 10
+        },
+        {
+          "id": "shadow",
+          "type": "sprite",
+          "rect": [
+            55,
+            100,
+            18,
+            18
+          ],
+          "z": 5,
+          "texture": "shadow"
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "target": "box",
+      "property": "offset",
+      "params": [
+        "px"
+      ],
+      "axes": [
+        [
+          -1,
+          1
+        ]
+      ],
+      "values": [
+        [
+          -45,
+          0
+        ],
+        [
+          45,
+          0
+        ]
+      ]
+    },
+    {
+      "target": "box",
+      "property": "offset",
+      "params": [
+        "py"
+      ],
+      "axes": [
+        [
+          -1,
+          1
+        ]
+      ],
+      "values": [
+        [
+          0,
+          -45
+        ],
+        [
+          0,
+          45
+        ]
+      ]
+    },
+    {
+      "target": "shadow",
+      "property": "offset",
+      "params": [
+        "px"
+      ],
+      "axes": [
+        [
+          -1,
+          1
+        ]
+      ],
+      "values": [
+        [
+          -45,
+          0
+        ],
+        [
+          45,
+          0
+        ]
+      ]
+    }
+  ]
+}

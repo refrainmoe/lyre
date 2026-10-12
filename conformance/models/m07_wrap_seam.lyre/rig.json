@@ -1,0 +1,106 @@
+{
+  "params": [
+    {
+      "id": "spin",
+      "min": 0,
+      "max": 360,
+      "default": 0,
+      "wrap": true
+    },
+    {
+      "id": "ref",
+      "min": 0,
+      "max": 360,
+      "default": 0
+    }
+  ],
+  "nodes": [
+    {
+      "id": "root",
+      "type": "group",
+      "children": [
+        {
+          "id": "rot",
+          "type": "rotator",
+          "pivot": [
+            0,
+            0
+          ],
+          "children": [
+            {
+              "id": "wheel",
+              "type": "sprite",
+              "rect": [
+                -36,
+                -36,
+                72,
+                72
+              ],
+              "z": 10
+            }
+          ]
+        },
+        {
+          "id": "marker",
+          "type": "sprite",
+          "rect": [
+            -60,
+            -60,
+            10,
+            10
+          ],
+          "z": 20
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "target": "rot",
+      "property": "angle",
+      "params": [
+        "spin"
+      ],
+      "axes": [
+        [
+          0,
+          120,
+          240
+        ]
+      ],
+      "values": [
+        0,
+        120,
+        240
+      ]
+    },
+    {
+      "target": "marker",
+      "property": "offset",
+      "params": [
+        "ref"
+      ],
+      "axes": [
+        [
+          0,
+          120,
+          240
+        ]
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          40,
+          0
+        ],
+        [
+          80,
+          0
+        ]
+      ]
+    }
+  ]
+}

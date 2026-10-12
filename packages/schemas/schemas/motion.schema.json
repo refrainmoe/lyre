@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://refrain.moe/lyre/schemas/0.1/motion.schema.json",
+  "title": "Lyre motions/*.motion.json (§10.2)",
+  "type": "object",
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "duration": { "type": "number", "exclusiveMinimum": 0 },
+    "loop": { "type": "boolean" },
+    "tracks": {
+      "type": "array",
+      "maxItems": 100000,
+      "items": {
+        "type": "object",
+        "properties": {
+          "param": { "$ref": "common.schema.json#/$defs/paramId" },
+          "keys": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/key" },
+            "minItems": 1,
+            "maxItems": 1000000
+          }
+        },
+        "required": ["param", "keys"]
+      }
+    }
+  },
+  "required": ["id", "duration", "tracks"],
+  "$defs": {
+    "key": {
+      "type": "object",
+      "properties": {
+        "t": { "type": "number", "minimum": 0 },
+        "v": { "type": "number" },
+        "ease": { "enum": ["linear", "step", "bezier"] },
+        "cp": {
+          "type": "array",
+          "prefixItems": [
+            { "type": "number", "minimum": 0, "maximum": 1 },
+            { "type": "number" },
+            { "type": "number", "minimum": 0, "maximum": 1 },
+            { "type": "number" }
+          ],
+          "items": false,
+          "minItems": 4,
+          "maxItems": 4,
+          "$comment": "CSS-style control points [x1,y1,x2,y2]; x1/x2 must be in [0,1] (§10.2)."
+        }
+      },
+      "required": ["t", "v"],
+      "if": { "properties": { "ease": { "const": "bezier" } }, "required": ["ease"] },
+      "then": { "required": ["cp"] }
+    }
+  }
+}

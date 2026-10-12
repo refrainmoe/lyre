@@ -1,0 +1,12 @@
+{
+  "id": "exp_add",
+  "fade_in": 0,
+  "fade_out": 0,
+  "params": [
+    {
+      "id": "b",
+      "value": 0.5,
+      "blend": "add"
+    }
+  ]
+}

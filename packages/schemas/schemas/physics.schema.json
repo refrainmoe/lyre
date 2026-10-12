@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://refrain.moe/lyre/schemas/0.1/physics.schema.json",
+  "title": "Lyre physics.json (§9)",
+  "type": "object",
+  "properties": {
+    "fps": { "type": "number", "exclusiveMinimum": 0, "maximum": 240 },
+    "chains": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/chain" },
+      "maxItems": 256
+    }
+  },
+  "required": ["fps", "chains"],
+  "$defs": {
+    "chain": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "inputs": {
+          "type": "array",
+          "maxItems": 100000,
+          "items": {
+            "type": "object",
+            "properties": {
+              "param": { "$ref": "common.schema.json#/$defs/paramId" },
+              "type": { "enum": ["x", "y", "angle"] },
+              "weight": { "type": "number" }
+            },
+            "required": ["param", "type", "weight"]
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "length": { "type": "number", "exclusiveMinimum": 0 },
+              "damping": { "type": "number", "minimum": 0, "maximum": 1 },
+              "stiffness": { "type": "number", "minimum": 0, "maximum": 1 }
+            },
+            "required": ["length", "damping", "stiffness"]
+          },
+          "minItems": 1,
+          "maxItems": 64
+        },
+        "gravity": { "$ref": "common.schema.json#/$defs/vec2" },
+        "wind": { "$ref": "common.schema.json#/$defs/vec2" },
+        "outputs": {
+          "type": "array",
+          "maxItems": 100000,
+          "items": {
+            "type": "object",
+            "properties": {
+              "link": { "type": "integer", "minimum": 0 },
+              "param": { "$ref": "common.schema.json#/$defs/paramId" },
+              "multiplier": { "type": "number" },
+              "blend": { "enum": ["overwrite", "add"] }
+            },
+            "required": ["link", "param"]
+          }
+        }
+      },
+      "required": ["id", "inputs", "links", "outputs"]
+    }
+  }
+}

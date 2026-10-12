@@ -1,0 +1,27 @@
+{
+  "name": "@refrain-lyre/testbed",
+  "version": "0.1.0",
+  "license": "Unlicense",
+  "private": true,
+  "description": "Browser testbed for Lyrical Refrain (Lyre) — visual validation of the reference renderers against the conformance suite",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "tsx test/unit.ts",
+    "e2e": "tsx e2e/smoke.ts"
+  },
+  "dependencies": {
+    "@refrain-lyre/core": "workspace:*",
+    "@refrain-lyre/render-soft": "workspace:*",
+    "@refrain-lyre/render-webgl": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/pngjs": "^6.0.5",
+    "playwright": "^1.61.1",
+    "pngjs": "^7.0.0",
+    "tsx": "^4.19.0",
+    "vite": "^6.0.0"
+  }
+}

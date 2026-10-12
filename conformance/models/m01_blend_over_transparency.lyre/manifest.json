@@ -1,0 +1,19 @@
+{
+  "lyre": "0.1",
+  "id": "m01_blend_over_transparency",
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "origin": [
+      0,
+      0
+    ]
+  },
+  "capabilities": [
+    "core"
+  ],
+  "files": {
+    "rig": "rig.json"
+  },
+  "$note": "§8.3 blend equations incl. additive emission at zero alpha, multiply over transparency, and a normal compatibility halo."
+}

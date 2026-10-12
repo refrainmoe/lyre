@@ -1,0 +1,136 @@
+{
+  "params": [
+    {
+      "id": "p",
+      "min": 0,
+      "max": 1,
+      "default": 0
+    }
+  ],
+  "nodes": [
+    {
+      "id": "root",
+      "type": "group",
+      "children": [
+        {
+          "id": "outfit_a",
+          "type": "group",
+          "children": [
+            {
+              "id": "dress_a",
+              "type": "sprite",
+              "rect": [
+                20,
+                30,
+                40,
+                60
+              ],
+              "z": 10
+            },
+            {
+              "id": "mask_src",
+              "type": "sprite",
+              "rect": [
+                70,
+                30,
+                40,
+                40
+              ],
+              "z": 11,
+              "opacity": 0,
+              "texture": "dress_a"
+            }
+          ]
+        },
+        {
+          "id": "outfit_b",
+          "type": "group",
+          "children": [
+            {
+              "id": "dress_b",
+              "type": "sprite",
+              "rect": [
+                20,
+                30,
+                40,
+                60
+              ],
+              "z": 20
+            }
+          ]
+        },
+        {
+          "id": "collar",
+          "type": "sprite",
+          "rect": [
+            24,
+            22,
+            32,
+            12
+          ],
+          "z": 30
+        },
+        {
+          "id": "clipped",
+          "type": "sprite",
+          "rect": [
+            70,
+            30,
+            40,
+            40
+          ],
+          "z": 40,
+          "texture": "art",
+          "mask": {
+            "mode": "alpha",
+            "sources": [
+              "mask_src"
+            ]
+          }
+        },
+        {
+          "id": "badge_star",
+          "type": "group",
+          "children": [
+            {
+              "id": "star",
+              "type": "sprite",
+              "rect": [
+                90,
+                90,
+                24,
+                24
+              ],
+              "z": 50
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "target": "dress_b",
+      "property": "offset",
+      "params": [
+        "p"
+      ],
+      "axes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          20
+        ]
+      ]
+    }
+  ]
+}

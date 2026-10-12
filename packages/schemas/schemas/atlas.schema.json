@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://refrain.moe/lyre/schemas/0.1/atlas.schema.json",
+  "title": "Lyre atlas.json (§3.2)",
+  "$comment": "`image` is a container-relative path to the packed PNG; `rects` maps texture ids to positive integer [x, y, w, h] texel rectangles inside it. Packed rects must honor the §3.2 gutter rules.",
+  "type": "object",
+  "properties": {
+    "image": { "type": "string", "minLength": 1 },
+    "rects": {
+      "type": "object",
+      "maxProperties": 100000,
+      "propertyNames": {
+        "anyOf": [
+          { "type": "string", "pattern": "^[a-z][a-z0-9_]*$", "maxLength": 128 },
+          { "type": "string", "pattern": "^\\$" }
+        ]
+      },
+      "patternProperties": {
+        "^[a-z][a-z0-9_]*$": { "$ref": "#/$defs/atlasRect" },
+        "^\\$": {}
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": ["image", "rects"],
+  "$defs": {
+    "atlasRect": {
+      "type": "array",
+      "prefixItems": [
+        { "type": "integer", "minimum": 0 },
+        { "type": "integer", "minimum": 0 },
+        { "type": "integer", "minimum": 1 },
+        { "type": "integer", "minimum": 1 }
+      ],
+      "minItems": 4,
+      "maxItems": 4,
+      "items": false
+    }
+  }
+}

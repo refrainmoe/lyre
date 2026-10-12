@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "files": [],
+  "references": [
+    { "path": "packages/schemas" },
+    { "path": "packages/core" },
+    { "path": "packages/render-soft" },
+    { "path": "packages/render-webgl" },
+    { "path": "packages/validate" },
+    { "path": "packages/testbed" },
+    { "path": "tools/gen" }
+  ]
+}

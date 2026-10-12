@@ -1,0 +1,866 @@
+{
+  "version": 1,
+  "width": 2048,
+  "height": 2048,
+  "padding": 6,
+  "layers": [
+    {
+      "name": "back hair",
+      "source": {
+        "x": 473,
+        "y": 48,
+        "width": 1100,
+        "height": 800
+      },
+      "atlas": {
+        "x": 6,
+        "y": 6,
+        "width": 1100,
+        "height": 800
+      },
+      "drawOrder": 0,
+      "id": "back_hair",
+      "layerId": 1,
+      "originalBounds": {
+        "x": 473,
+        "y": 48,
+        "width": 1100,
+        "height": 800
+      },
+      "allocation": {
+        "x": 0,
+        "y": 0,
+        "width": 1112,
+        "height": 812
+      },
+      "uv": {
+        "u0": 0.002929688,
+        "v0": 0.002929688,
+        "u1": 0.540039062,
+        "v1": 0.393554688
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "arm_left",
+      "source": {
+        "x": 541,
+        "y": 411,
+        "width": 310,
+        "height": 276
+      },
+      "atlas": {
+        "x": 552,
+        "y": 1716,
+        "width": 310,
+        "height": 276
+      },
+      "drawOrder": 1,
+      "id": "arm_left",
+      "layerId": 2,
+      "originalBounds": {
+        "x": 539,
+        "y": 399,
+        "width": 448,
+        "height": 483
+      },
+      "allocation": {
+        "x": 546,
+        "y": 1710,
+        "width": 322,
+        "height": 288
+      },
+      "uv": {
+        "u0": 0.26953125,
+        "v0": 0.837890625,
+        "u1": 0.420898438,
+        "v1": 0.97265625
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "feet",
+      "source": {
+        "x": 1093,
+        "y": 1055,
+        "width": 208,
+        "height": 908
+      },
+      "atlas": {
+        "x": 6,
+        "y": 818,
+        "width": 208,
+        "height": 908
+      },
+      "drawOrder": 2,
+      "id": "feet",
+      "layerId": 3,
+      "originalBounds": {
+        "x": 1093,
+        "y": 1055,
+        "width": 208,
+        "height": 908
+      },
+      "allocation": {
+        "x": 0,
+        "y": 812,
+        "width": 220,
+        "height": 920
+      },
+      "uv": {
+        "u0": 0.002929688,
+        "v0": 0.399414062,
+        "u1": 0.104492188,
+        "v1": 0.842773438
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "skirt_back",
+      "source": {
+        "x": 901,
+        "y": 925,
+        "width": 308,
+        "height": 135
+      },
+      "atlas": {
+        "x": 1579,
+        "y": 957,
+        "width": 308,
+        "height": 135
+      },
+      "drawOrder": 3,
+      "id": "skirt_back",
+      "layerId": 4,
+      "originalBounds": {
+        "x": 901,
+        "y": 925,
+        "width": 308,
+        "height": 135
+      },
+      "allocation": {
+        "x": 1573,
+        "y": 951,
+        "width": 320,
+        "height": 147
+      },
+      "uv": {
+        "u0": 0.770996094,
+        "v0": 0.467285156,
+        "u1": 0.921386719,
+        "v1": 0.533203125
+      },
+      "maskApplied": false
+    },
+    {
+      "name": "legs",
+      "source": {
+        "x": 819,
+        "y": 881,
+        "width": 413,
+        "height": 886
+      },
+      "atlas": {
+        "x": 226,
+        "y": 818,
+        "width": 413,
+        "height": 886
+      },
+      "drawOrder": 4,
+      "id": "legs",
+      "layerId": 5,
+      "originalBounds": {
+        "x": 819,
+        "y": 881,
+        "width": 413,
+        "height": 886
+      },
+      "allocation": {
+        "x": 220,
+        "y": 812,
+        "width": 425,
+        "height": 898
+      },
+      "uv": {
+        "u0": 0.110351562,
+        "v0": 0.399414062,
+        "u1": 0.312011719,
+        "v1": 0.83203125
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "skirt",
+      "source": {
+        "x": 737,
+        "y": 726,
+        "width": 528,
+        "height": 362
+      },
+      "atlas": {
+        "x": 1173,
+        "y": 565,
+        "width": 528,
+        "height": 362
+      },
+      "drawOrder": 5,
+      "id": "skirt",
+      "layerId": 6,
+      "originalBounds": {
+        "x": 737,
+        "y": 726,
+        "width": 528,
+        "height": 362
+      },
+      "allocation": {
+        "x": 1167,
+        "y": 559,
+        "width": 540,
+        "height": 374
+      },
+      "uv": {
+        "u0": 0.572753906,
+        "v0": 0.275878906,
+        "u1": 0.830566406,
+        "v1": 0.452636719
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "torso",
+      "source": {
+        "x": 789,
+        "y": 363,
+        "width": 394,
+        "height": 434
+      },
+      "atlas": {
+        "x": 1173,
+        "y": 939,
+        "width": 394,
+        "height": 434
+      },
+      "drawOrder": 6,
+      "id": "torso",
+      "layerId": 7,
+      "originalBounds": {
+        "x": 789,
+        "y": 363,
+        "width": 394,
+        "height": 434
+      },
+      "allocation": {
+        "x": 1167,
+        "y": 933,
+        "width": 406,
+        "height": 446
+      },
+      "uv": {
+        "u0": 0.572753906,
+        "v0": 0.458496094,
+        "u1": 0.765136719,
+        "v1": 0.670410156
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "neck",
+      "source": {
+        "x": 918,
+        "y": 300,
+        "width": 85,
+        "height": 110
+      },
+      "atlas": {
+        "x": 1899,
+        "y": 1029,
+        "width": 85,
+        "height": 110
+      },
+      "drawOrder": 7,
+      "id": "neck",
+      "layerId": 8,
+      "originalBounds": {
+        "x": 918,
+        "y": 300,
+        "width": 85,
+        "height": 111
+      },
+      "allocation": {
+        "x": 1893,
+        "y": 1023,
+        "width": 97,
+        "height": 122
+      },
+      "uv": {
+        "u0": 0.927246094,
+        "v0": 0.502441406,
+        "u1": 0.96875,
+        "v1": 0.556152344
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "arm_right",
+      "source": {
+        "x": 1015,
+        "y": 402,
+        "width": 401,
+        "height": 499
+      },
+      "atlas": {
+        "x": 1640,
+        "y": 6,
+        "width": 401,
+        "height": 499
+      },
+      "drawOrder": 8,
+      "id": "arm_right",
+      "layerId": 9,
+      "originalBounds": {
+        "x": 888,
+        "y": 398,
+        "width": 528,
+        "height": 503
+      },
+      "allocation": {
+        "x": 1634,
+        "y": 0,
+        "width": 413,
+        "height": 511
+      },
+      "uv": {
+        "u0": 0.80078125,
+        "v0": 0.002929688,
+        "u1": 0.996582031,
+        "v1": 0.246582031
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "bags",
+      "source": {
+        "x": 1205,
+        "y": 860,
+        "width": 510,
+        "height": 547
+      },
+      "atlas": {
+        "x": 1118,
+        "y": 6,
+        "width": 510,
+        "height": 547
+      },
+      "drawOrder": 9,
+      "id": "bags",
+      "layerId": 10,
+      "originalBounds": {
+        "x": 1205,
+        "y": 860,
+        "width": 510,
+        "height": 547
+      },
+      "allocation": {
+        "x": 1112,
+        "y": 0,
+        "width": 522,
+        "height": 559
+      },
+      "uv": {
+        "u0": 0.545898438,
+        "v0": 0.002929688,
+        "u1": 0.794921875,
+        "v1": 0.270019531
+      },
+      "maskApplied": false
+    },
+    {
+      "name": "eyebrow",
+      "source": {
+        "x": 890,
+        "y": 192,
+        "width": 176,
+        "height": 45
+      },
+      "atlas": {
+        "x": 6,
+        "y": 1915,
+        "width": 176,
+        "height": 45
+      },
+      "drawOrder": 10,
+      "id": "eyebrow",
+      "layerId": 11,
+      "originalBounds": {
+        "x": 890,
+        "y": 192,
+        "width": 176,
+        "height": 45
+      },
+      "allocation": {
+        "x": 0,
+        "y": 1909,
+        "width": 188,
+        "height": 57
+      },
+      "uv": {
+        "u0": 0.002929688,
+        "v0": 0.935058594,
+        "u1": 0.088867188,
+        "v1": 0.95703125
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "ears",
+      "source": {
+        "x": 868,
+        "y": 241,
+        "width": 214,
+        "height": 86
+      },
+      "atlas": {
+        "x": 874,
+        "y": 1941,
+        "width": 214,
+        "height": 86
+      },
+      "drawOrder": 11,
+      "id": "ears",
+      "layerId": 12,
+      "originalBounds": {
+        "x": 868,
+        "y": 241,
+        "width": 214,
+        "height": 86
+      },
+      "allocation": {
+        "x": 868,
+        "y": 1935,
+        "width": 226,
+        "height": 98
+      },
+      "uv": {
+        "u0": 0.426757812,
+        "v0": 0.947753906,
+        "u1": 0.53125,
+        "v1": 0.989746094
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "face",
+      "source": {
+        "x": 876,
+        "y": 130,
+        "width": 210,
+        "height": 236
+      },
+      "atlas": {
+        "x": 874,
+        "y": 1693,
+        "width": 210,
+        "height": 236
+      },
+      "drawOrder": 12,
+      "id": "face",
+      "layerId": 13,
+      "originalBounds": {
+        "x": 876,
+        "y": 130,
+        "width": 210,
+        "height": 236
+      },
+      "allocation": {
+        "x": 868,
+        "y": 1687,
+        "width": 222,
+        "height": 248
+      },
+      "uv": {
+        "u0": 0.426757812,
+        "v0": 0.826660156,
+        "u1": 0.529296875,
+        "v1": 0.941894531
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "nose",
+      "source": {
+        "x": 958,
+        "y": 276,
+        "width": 12,
+        "height": 15
+      },
+      "atlas": {
+        "x": 196,
+        "y": 1830,
+        "width": 12,
+        "height": 15
+      },
+      "drawOrder": 13,
+      "id": "nose",
+      "layerId": 14,
+      "originalBounds": {
+        "x": 958,
+        "y": 276,
+        "width": 12,
+        "height": 15
+      },
+      "allocation": {
+        "x": 190,
+        "y": 1824,
+        "width": 24,
+        "height": 27
+      },
+      "uv": {
+        "u0": 0.095703125,
+        "v0": 0.893554688,
+        "u1": 0.1015625,
+        "v1": 0.900878906
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "eyewear",
+      "source": {
+        "x": 880,
+        "y": 222,
+        "width": 206,
+        "height": 80
+      },
+      "atlas": {
+        "x": 6,
+        "y": 1738,
+        "width": 206,
+        "height": 80
+      },
+      "drawOrder": 14,
+      "id": "eyewear",
+      "layerId": 15,
+      "originalBounds": {
+        "x": 879,
+        "y": 222,
+        "width": 207,
+        "height": 80
+      },
+      "allocation": {
+        "x": 0,
+        "y": 1732,
+        "width": 218,
+        "height": 92
+      },
+      "uv": {
+        "u0": 0.002929688,
+        "v0": 0.848632812,
+        "u1": 0.103515625,
+        "v1": 0.887695312
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "mouth",
+      "source": {
+        "x": 934,
+        "y": 306,
+        "width": 46,
+        "height": 35
+      },
+      "atlas": {
+        "x": 1996,
+        "y": 1029,
+        "width": 46,
+        "height": 35
+      },
+      "drawOrder": 15,
+      "id": "mouth",
+      "layerId": 16,
+      "originalBounds": {
+        "x": 934,
+        "y": 306,
+        "width": 46,
+        "height": 35
+      },
+      "allocation": {
+        "x": 1990,
+        "y": 1023,
+        "width": 58,
+        "height": 47
+      },
+      "uv": {
+        "u0": 0.974609375,
+        "v0": 0.502441406,
+        "u1": 0.997070312,
+        "v1": 0.51953125
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "eyewhite",
+      "source": {
+        "x": 895,
+        "y": 223,
+        "width": 156,
+        "height": 65
+      },
+      "atlas": {
+        "x": 6,
+        "y": 1972,
+        "width": 156,
+        "height": 65
+      },
+      "drawOrder": 16,
+      "id": "eyewhite",
+      "layerId": 17,
+      "originalBounds": {
+        "x": 895,
+        "y": 223,
+        "width": 156,
+        "height": 65
+      },
+      "allocation": {
+        "x": 0,
+        "y": 1966,
+        "width": 168,
+        "height": 77
+      },
+      "uv": {
+        "u0": 0.002929688,
+        "v0": 0.962890625,
+        "u1": 0.079101562,
+        "v1": 0.994628906
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "irides",
+      "source": {
+        "x": 908,
+        "y": 225,
+        "width": 131,
+        "height": 60
+      },
+      "atlas": {
+        "x": 1899,
+        "y": 957,
+        "width": 131,
+        "height": 60
+      },
+      "drawOrder": 17,
+      "id": "irides",
+      "layerId": 18,
+      "originalBounds": {
+        "x": 908,
+        "y": 225,
+        "width": 131,
+        "height": 60
+      },
+      "allocation": {
+        "x": 1893,
+        "y": 951,
+        "width": 143,
+        "height": 72
+      },
+      "uv": {
+        "u0": 0.927246094,
+        "v0": 0.467285156,
+        "u1": 0.991210938,
+        "v1": 0.496582031
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "eyelash",
+      "source": {
+        "x": 885,
+        "y": 214,
+        "width": 178,
+        "height": 73
+      },
+      "atlas": {
+        "x": 6,
+        "y": 1830,
+        "width": 178,
+        "height": 73
+      },
+      "drawOrder": 18,
+      "id": "eyelash",
+      "layerId": 19,
+      "originalBounds": {
+        "x": 885,
+        "y": 214,
+        "width": 178,
+        "height": 73
+      },
+      "allocation": {
+        "x": 0,
+        "y": 1824,
+        "width": 190,
+        "height": 85
+      },
+      "uv": {
+        "u0": 0.002929688,
+        "v0": 0.893554688,
+        "u1": 0.08984375,
+        "v1": 0.929199219
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "front hair",
+      "source": {
+        "x": 817,
+        "y": 57,
+        "width": 296,
+        "height": 428
+      },
+      "atlas": {
+        "x": 1713,
+        "y": 517,
+        "width": 296,
+        "height": 428
+      },
+      "drawOrder": 19,
+      "id": "front_hair",
+      "layerId": 20,
+      "originalBounds": {
+        "x": 817,
+        "y": 57,
+        "width": 296,
+        "height": 429
+      },
+      "allocation": {
+        "x": 1707,
+        "y": 511,
+        "width": 308,
+        "height": 440
+      },
+      "uv": {
+        "u0": 0.836425781,
+        "v0": 0.252441406,
+        "u1": 0.980957031,
+        "v1": 0.461425781
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "bouquet",
+      "source": {
+        "x": 351,
+        "y": 121,
+        "width": 510,
+        "height": 863
+      },
+      "atlas": {
+        "x": 651,
+        "y": 818,
+        "width": 510,
+        "height": 863
+      },
+      "drawOrder": 20,
+      "id": "bouquet",
+      "layerId": 21,
+      "originalBounds": {
+        "x": 351,
+        "y": 120,
+        "width": 544,
+        "height": 866
+      },
+      "allocation": {
+        "x": 645,
+        "y": 812,
+        "width": 522,
+        "height": 875
+      },
+      "uv": {
+        "u0": 0.317871094,
+        "v0": 0.399414062,
+        "u1": 0.566894531,
+        "v1": 0.820800781
+      },
+      "maskApplied": true
+    },
+    {
+      "name": "hand_left",
+      "source": {
+        "x": 536,
+        "y": 452,
+        "width": 314,
+        "height": 316
+      },
+      "atlas": {
+        "x": 226,
+        "y": 1716,
+        "width": 314,
+        "height": 316
+      },
+      "drawOrder": 21,
+      "id": "hand_left",
+      "layerId": 22,
+      "originalBounds": {
+        "x": 536,
+        "y": 399,
+        "width": 450,
+        "height": 483
+      },
+      "allocation": {
+        "x": 220,
+        "y": 1710,
+        "width": 326,
+        "height": 328
+      },
+      "uv": {
+        "u0": 0.110351562,
+        "v0": 0.837890625,
+        "u1": 0.263671875,
+        "v1": 0.9921875
+      },
+      "maskApplied": true
+    }
+  ],
+  "sourceDocument": {
+    "file": "character_updated_4.psd",
+    "width": 2048,
+    "height": 2048,
+    "colorMode": "RGB",
+    "depth": 8,
+    "layerOrder": "back-to-front"
+  },
+  "texture": {
+    "file": "atlas.png",
+    "rotation": false,
+    "alphaMode": "straight; upload premultiplied",
+    "edgePadding": "extruded",
+    "sha256": "636e060bea6936d43f4359f93f6900f16385ac6f8509f6171ae182654bed17ac"
+  },
+  "fallback": {
+    "file": "fallback.png",
+    "width": 2048,
+    "height": 2048,
+    "alphaMode": "straight",
+    "sha256": "b103cb2cd96e26ddfb6593669ca900941c97294d9cd6d8a403e04aeb2fa4e45d"
+  },
+  "validation": {
+    "differentPixels": 0,
+    "differentPixelPercent": 0.0,
+    "differentChannelValues": 0,
+    "maxChannelDifference": 0,
+    "meanAbsoluteChannelDifference": 0.0,
+    "meanAbsoluteDifferenceByChannel": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "differentValuesByChannel": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "comparison": "recomposed layers matted on white vs PSD merged RGB, plus alpha",
+    "recomposedSha256": "b103cb2cd96e26ddfb6593669ca900941c97294d9cd6d8a403e04aeb2fa4e45d",
+    "mergedCompositeSha256": "224b458a045ef513893a4cdfe48c9bc0ad88cf0c8ebea89c69ae23223965c178"
+  }
+}

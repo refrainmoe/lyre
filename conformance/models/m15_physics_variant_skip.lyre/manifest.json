@@ -1,0 +1,23 @@
+{
+  "lyre": "0.1",
+  "id": "m15_physics_variant_skip",
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "origin": [
+      64,
+      10
+    ]
+  },
+  "capabilities": [
+    "core",
+    "physics",
+    "variants"
+  ],
+  "files": {
+    "rig": "rig.json",
+    "physics": "physics.json",
+    "variants": "variants.json"
+  },
+  "$note": "§10.3 rule 5: renders must be identical whether ch_cape is simulated or skipped; only ch_main is traced."
+}

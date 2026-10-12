@@ -1,0 +1,19 @@
+{
+  "lyre": "0.1",
+  "id": "m09_masks",
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "origin": [
+      0,
+      0
+    ]
+  },
+  "capabilities": [
+    "core"
+  ],
+  "files": {
+    "rig": "rig.json"
+  },
+  "$note": "§8.4: multi-source coverage union of raw alpha; opacity (own or inherited) never affects clipping; inverted mode; visible sources draw normally."
+}

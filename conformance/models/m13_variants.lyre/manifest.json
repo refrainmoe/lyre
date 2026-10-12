@@ -1,0 +1,21 @@
+{
+  "lyre": "0.1",
+  "id": "m13_variants",
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "origin": [
+      0,
+      0
+    ]
+  },
+  "capabilities": [
+    "core",
+    "variants"
+  ],
+  "files": {
+    "rig": "rig.json",
+    "variants": "variants.json"
+  },
+  "$note": "§10.3: exclusion semantics, same-slot sharing, empty option, excluded binding target, excludable mask source, mid-timeline switch."
+}

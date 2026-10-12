@@ -1,0 +1,28 @@
+{
+  "lyre": "0.1",
+  "id": "soraya",
+  "name": "Soraya",
+  "canvas": {
+    "width": 2048,
+    "height": 2048,
+    "origin": [
+      0,
+      0
+    ]
+  },
+  "capabilities": [
+    "core",
+    "motion"
+  ],
+  "files": {
+    "rig": "rig.json",
+    "atlas": "atlas.json",
+    "expressions": [
+      "expressions/eyes_closed.exp.json"
+    ],
+    "motions": [
+      "motions/idle.motion.json"
+    ]
+  },
+  "$note": "Real-world Lyre example converted from return moe's Soraya web demo."
+}
